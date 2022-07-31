@@ -8,4 +8,3 @@ Deep: X
 X+1=Ybits. Y=2-9
 
 
-This program is for Quantum Supercomputers
