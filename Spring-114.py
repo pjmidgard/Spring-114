@@ -26,7 +26,7 @@ class compression:
 
 
                                                 
-                        Deep=2
+                        Deep=9
                         Deep2=Deep+2
                         Deep3=Deep*2
                                 
