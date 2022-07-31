@@ -193,7 +193,7 @@ class compression:
                                 lenf2=len(Equal_info_between_of_the_cirlce_of_the_file_2)
                                 #print(lenf2)
                                 if i==1:
-                                    if lenf7>=(2**40)-1:
+                                    if lenf7>=(2**32)-1:
                                         raise SystemExit
 
                                 #########################################################################################################################################################
