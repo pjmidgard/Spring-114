@@ -256,7 +256,7 @@ class compression:
                                     Long_file=len(Equal_info_between_of_the_cirlce_of_the_file)
 
                                     block=0
-                                    Deep_Block=Deep2*2
+                                    Deep_Block=Deep2*30
 
                                     while block<Long_file:
 
@@ -473,6 +473,9 @@ class compression:
                                     		Equal_info_between_of_the_cirlce_of_the_file_2=Times_6
                                     		
                                     		with open(nameas, "wb") as f2:
+                                    	
+                                    			
+
                                     			f2.write(width_bits3)
                                     	
                                     		x2 = time()
@@ -628,8 +631,8 @@ class compression:
                                             Equal_info_between_of_the_cirlce_of_the_file_2=Times_6
                                              
                                             with open(nameas, "wb") as f2:
-                                            
-                                              
+                                             
+                                               
                                             	f2.write(width_bits3)
                                             x2 = time()
                                             x3=x2-x
