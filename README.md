@@ -5,6 +5,6 @@ Algorithm: Save size of file. Division plus 1 this and write a bit less or more 
 Divide by blocks block=Deep2*30. If compress 1 not compress 0.
 Deep: X
 
-X+1=Ybits. Y=2 or 9
+X+1=Ybits. Y=2-9
 
 
