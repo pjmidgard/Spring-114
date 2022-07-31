@@ -24,12 +24,27 @@ class compression:
                 if namez=="c" or namez=="e":        
                     if namez=="c":
 
+                        Deep = str(input("Please, enter Deep? "))
 
+                        x = Deep.isnumeric()
+                        if x==False:
+                                print("Sorry this not whole number")
+                                raise SystemExit
+                        
+                        if x==True:
+                                Deep=int(Deep)
+                                Deep6=65535-1
+
+                                if Deep>Deep6:
+                                        Deep=Deep6
+
+                                if Deep<1:
+                                        Deep=1
                                                 
-                        Deep=2
-                        Deep2=Deep+2
-                        Deep3=Deep*2
-                                
+                                Deep=Deep+1
+                                Deep2=Deep+2
+                                Deep3=Deep*2
+                                print(Deep-1)
 
                         i=1
 
@@ -367,7 +382,19 @@ class compression:
                                     
                                     
 
-     
+                                    if   lenfS<=Deep3 or compress_or_not_compress==2:
+                                    	   
+                                            Equal_info_between_of_the_cirlce_of_the_file0=bin(Deep)[2:]
+                                            lenf=len(Equal_info_between_of_the_cirlce_of_the_file0)
+
+                                            add_bits8=""
+                                            count_bits=8-lenf%8
+                                            z=0
+                                            if count_bits!=0:
+                                                if count_bits!=8:
+                                                        while z<count_bits:
+                                                         	add_bits8="0"+add_bits8
+                                                         	z=z+1
                                     if   lenfS<=Deep3 or compress_or_not_compress==2:
                                     	   
                                             Size_of_file=bin(lenf7)[2:]
@@ -429,7 +456,7 @@ class compression:
 
                                     if   lenfS<=Deep3 or compress_or_not_compress==2:
                                             lenf=len(Equal_info_between_of_the_cirlce_of_the_file_17)                                           
-                                            Equal_info_between_of_the_cirlce_of_the_file_17=add_bits11+Size_of_file+add_bits9+Equal_info_between_of_the_cirlce_of_the_file1+add_bits7+Equal_info_between_of_the_cirlce_of_the_file_29+add_bits+Equal_info_between_of_the_cirlce_of_the_file_17
+                                            Equal_info_between_of_the_cirlce_of_the_file_17=add_bits11+Size_of_file+add_bits9+Equal_info_between_of_the_cirlce_of_the_file1+add_bits8+Equal_info_between_of_the_cirlce_of_the_file0+add_bits7+Equal_info_between_of_the_cirlce_of_the_file_29+add_bits+Equal_info_between_of_the_cirlce_of_the_file_17
 
                                     if   lenfS<=Deep3 or compress_or_not_compress==2:
                                                 
