@@ -364,13 +364,16 @@ class compression:
                                     Equal_info_between_of_the_cirlce_of_the_file_17=Block_divide
                                     lenfS=len(Block_divide)
                                     #print(lenfS)
-                                    if lenfS>=lenf6:
-                                            compress_or_not_compress=2
+                                    
                                             
 
                                     Block_divide=""
 
                                     Circle_times2=Circle_times2+1
+                                    if lenfS>=lenf6:
+                                            compress_or_not_compress=2
+                                            Circle_times2=Circle_times2-1
+                                            Equal_info_between_of_the_cirlce_of_the_file_17=Equal_info_between_of_the_cirlce_of_the_file
                                     
                                     
                                   
