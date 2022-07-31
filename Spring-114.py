@@ -193,7 +193,7 @@ class compression:
                                 lenf2=len(Equal_info_between_of_the_cirlce_of_the_file_2)
                                 #print(lenf2)
                                 if i==1:
-                                    if lenf7>=(2**32)-1:
+                                    if lenf7>=(2**40)-1:
                                         raise SystemExit
 
                                 #########################################################################################################################################################
@@ -401,10 +401,10 @@ class compression:
                                             lenf=len(Size_of_file)
 
                                             add_bits11=""
-                                            count_bits=40-lenf%40
+                                            count_bits=48-lenf%48
                                             z=0
                                             if count_bits!=0:
-                                                if count_bits!=40:
+                                                if count_bits!=48:
                                                         while z<count_bits:
                                                          	add_bits11="0"+add_bits11
                                                          	z=z+1           
