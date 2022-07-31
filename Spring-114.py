@@ -33,18 +33,18 @@ class compression:
                         
                         if x==True:
                                 Deep=int(Deep)
-                                Deep6=65535-9
+                                Deep6=65535-1
 
                                 if Deep>Deep6:
                                         Deep=Deep6
 
                                 if Deep<1:
-                                        Deep=9
+                                        Deep=1
                                                 
-                                Deep=Deep+9
+                                Deep=Deep+1
                                 Deep2=Deep+2
                                 Deep3=Deep*2
-                                print(Deep-9)
+                                print(Deep-1)
 
                         i=1
 
@@ -249,7 +249,7 @@ class compression:
                                     	Equal_info_between_of_the_cirlce_of_the_file="1"+Equal_info_between_of_the_cirlce_of_the_file
                                     	SpinS=1
 
-                                    if Circle_times2>=(2**8)-1:
+                                    if Circle_times2>=(2**24)-1:
                                             compress_or_not_compress=2
 
                                     lenf6=len(Equal_info_between_of_the_cirlce_of_the_file)
@@ -402,10 +402,10 @@ class compression:
                                             lenf=len(Equal_info_between_of_the_cirlce_of_the_file_29)
 
                                             add_bits7=""
-                                            count_bits=8-lenf%8
+                                            count_bits=24-lenf%24
                                             z=0
                                             if count_bits!=0:
-                                                if count_bits!=8:
+                                                if count_bits!=24:
                                                         while z<count_bits:
                                                          	add_bits7="0"+add_bits7
                                                          	z=z+1
