@@ -177,7 +177,7 @@ class compression:
                                 size_data19=""
                                 size_data10=size_data3
                                 predict=-1
-                                predict2=5
+                                predict2=4
                                 long_block=16
                                 Find=1
                                 Left_Right=0
@@ -232,7 +232,7 @@ class compression:
                                                     
                                                     predict2=predict2-1
                                                     if predict2==-1:
-                                                        predict2=4                                         
+                                                        predict2=3                                         
                                                                                                                                         
                 
                                                     block=0
