@@ -21,6 +21,12 @@ class compression:
                     else:
                             print('Path is not exists!')
                             raise SystemExit
+                            
+                    x=0
+                    x1=0
+                    x2=0
+                    x = time()
+                    
                     Deep=100
                     long_block=100
                         
@@ -70,10 +76,7 @@ class compression:
 
                     block=1
 
-                    x=0
-                    x1=0
-                    x2=0
-                    x = time()
+                    
 
                     with open(nameas, "w") as f4:
                             f4.write(s)
