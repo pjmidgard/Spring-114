@@ -178,6 +178,7 @@ class compression:
                                 size_data10=size_data3
                                 predict=-1
                                 predict2=-1
+                                predict3=0
                                 long_block=16
                                 Find=1
                                 Left_Right=0
@@ -223,9 +224,11 @@ class compression:
                                                     
                                                     find_matches1_number1=0
                                                 
-                                                       
-                                                    
-                                                    predict=predict+1
+                                                    predict3=predict3+1
+                                                    if predict3==3:
+                                                    	predict3=1
+                                                    if predict3==1:
+                                                       predict=predict+1
                                                     if predict==16:
                                                         predict=0
                                                     
