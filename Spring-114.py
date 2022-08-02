@@ -371,8 +371,8 @@ class compression:
                                                                                                                     
                                                                                                                                 
                                     lenf=len(add_bits118)
-                                    size_data24=bin(lenf)[2:]
-                                    lenf=len(size_data24)
+                                    size_data26=bin(lenf)[2:]
+                                    lenf=len(size_data26)
                                     if lenf>6:
                                         print("File too big")
                                         raise SystemExit
@@ -389,7 +389,7 @@ class compression:
                                                 z=z+1
                                                                                                                     
                                                                                                                                 
-                                    size_data11=add_bits118+size_data24+size_data11
+                                    size_data11=add_bits118+size_data26+size_data24+size_data11
                                     
                                     size_data11="1"+size_data11
                                     
