@@ -210,7 +210,7 @@ class compression:
                                     Find_guess=0
                                     while Find_guess!=1:
                                         
-                                        while  len(size_data3)>=240:
+                                        while  len(size_data3)>=1400:
 
 
                                                     
@@ -273,7 +273,7 @@ class compression:
 
                                                                                             size_data4=str_find
                                                                                             
-                                                                                        elif str_find[0:4]!=b and str_find[0:2]!=b2:
+                                                                                        elif str_find[0:4]!=b and str_find[4:6]!=b2:
 
                                                                                             size_data4=str_find
                                                                                             
@@ -290,7 +290,7 @@ class compression:
 
                             
                                                                                             
-                                                                                        elif str_find[4:8]!=b2 and str_find[2:4]!=b:
+                                                                                        elif str_find[4:8]!=b2 and str_find[0:2]!=b:
                                                                                             size_data4=str_find
                                                                                         
                                                                                 
