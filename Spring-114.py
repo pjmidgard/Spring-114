@@ -269,7 +269,7 @@ class compression:
 
                                                                                         elif str_find[4:6]==b2:
 
-                                                                                            size_data4=b2+str_find[0:4]+str_find[4:6]
+                                                                                            size_data4=b2+str_find[0:4]+str_find[6:]
                                                                                             
                                                                                         elif str_find[0:4]!=b and str_find[4:6]!=b2:
 
@@ -369,8 +369,8 @@ class compression:
                                                                                                                     
                                                                                                                                 
                                     lenf=len(add_bits118)
-                                    size_data24=bin(lenf)[2:]
-                                    lenf=len(size_data24)
+                                    size_data26=bin(lenf)[2:]
+                                    lenf=len(size_data26)
                                     if lenf>6:
                                         print("File too big")
                                         raise SystemExit
@@ -387,7 +387,7 @@ class compression:
                                                 z=z+1
                                                                                                                     
                                                                                                                                 
-                                    size_data11=add_bits118+size_data24+size_data11
+                                    size_data11=add_bits118+size_data26+size_data24+size_data11
                                     
                                     size_data11="1"+size_data11
                                     
