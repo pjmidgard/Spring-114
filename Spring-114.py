@@ -1,115 +1,78 @@
 from time import time
+cvf=0
 import os
 import binascii
-import math
-import os.path
+self="'"
 
-lenf=0
-name=""
-add_bits=""
-Make_togher=""
-
-namez = input("c,  compress or e, extract? ")
-
-#@Author Jurijus Pacalovas
+namez = input("for compress c or extract e? ")
+#@Author Jurijus pacalovas
 class compression:
-       
-        def cryptograpy_compression4(self):
+
+    def cryptograpy_compression(self):
                 
-                self.name = "Written: Jurijus pacalovas"
-
-                if namez!="c" and namez!="e":
-                        print("The wrong letter")
-                        raise SystemExit
-                if namez=="c" or namez=="e":        
-                    if namez=="c":
-
-                        Deep = str(input("Please, enter Deep? "))
-
-                        x = Deep.isnumeric()
-                        if x==False:
-                                print("Sorry this not whole number")
-                                raise SystemExit
-                        
-                        if x==True:
-                                Deep=int(Deep)
-                                Deep6=65535-1
-
-                                if Deep>Deep6:
-                                        Deep=Deep6
-
-                                if Deep<1:
-                                        Deep=1
-                                                
-                                Deep=Deep+1
-                                Deep2=Deep+2
-                                Deep3=Deep*2
-                                print(Deep-1)
-
-                        i=1
-
-                    if namez=="e":
-                        i=2
-                 
-                    Number_add_plus_one=""
-                    Prime_Not=""
-                    Times_6=""
-                    Corrupted=0
-                      
+                self.name = "Author: Jurijus pacalovas"
+                
+                if namez=="c":
+                    
+                   
                     name = input("What is name of file? ")
-
                     if os.path.exists(name):
                             print('Path is exists!')
                     else:
                             print('Path is not exists!')
                             raise SystemExit
-                            
-                    
+                    Deep=100
+                    long_block=100
+                        
+                    namea="file.W"
                     namem=""
                     namema="?"
-        
+                    Portal=2
+                    assxw=0
+                    blockw=5
+                    blockw1=4
                     nameas=name
                     nac=len(nameas)
-                    
-                    compress_or_not_compress=1
-                    Circle_times3=0
+           
 
-                    if i==2:
-                        if nameas[nac-4:nac]==".bin":
-                   
-                        	nameas=name[:nac-4]
-                        	nac=len(nameas)
-                        	
-                        	C=1
-
-                        elif nameas[nac-4:nac]!=".bin":
-                                print("Sorry, this is not binary file!")
-                                raise SystemExit
-                   
-                    if i==1:
-                        
-                        nameas=name+".bin"
-                    
-                    	
+                    nameas=name+".bin"
+                
                     nac=len(nameas)
                     
-                   
+                    countraz=0
+                    cvf=2
+                    cvf1=0
                     s=""
+                    e2=0
+                    e3=2
+                    e4=""
+                    c=2
+                    sw=2
+                    elw=0
+                    sw1=0
+                    sw2=0
+                    sw3=0
+                    sw5=0
+                    sw4=0
+                    sw6=0
+                    sw7=0
+                    n1=0
+                    n=0
+                    n2=0
+                    n3=0
+                 
+                    size_data3=""
+                    size_data2=""
 
-                    Equal_info_between_of_the_cirlce_of_the_file=""
-                    Equal_info_between_of_the_cirlce_of_the_file_2=""
+                    sscvf=0
+                    
+                    qqqqwzl=0
 
-                    Prime_Not=""
-                    Times_6=""
-
-                    Translate_info_Decimal=""
-
-                    D=0
+                    block=1
 
                     x=0
                     x1=0
                     x2=0
-                    n=0
                     x = time()
 
                     with open(nameas, "w") as f4:
@@ -120,588 +83,822 @@ class compression:
 
                        # Read the whole file at once
                         data = binary_file.read()
-      
-                        s=str(data)
-
-                        lenf1=len(data)
-                        lenf7=len(data)
-                        if lenf7==0:
-                        	 raise SystemExit
-                        
-                        END_working=0
-                        Circle_times2=0
-                                   
-                        Equal_info_between_of_the_cirlce_of_the_file_23=""
- 
-                        sda18=""
-                        Equal_info_between_of_the_cirlce_of_the_file_29=""
-                        
-                        SpinS=0
-                        while END_working<10:
-                       
-                            Circle_times3=Circle_times3+1
-                            D=1
-                            if D==1:
-                                if Circle_times3==1:
-
-                                 
-                                    sda=bin(int(binascii.hexlify(data),16))[2:]
-                                    lenf=len(sda)
-                                    lenf1=len(data)
-                                
-                                    count_bits=(lenf1*8)-lenf
-                                    z=0
-                                    if count_bits!=0:
-                                        while z<count_bits:
-                                            sda="0"+sda
-                                            z=z+1
-                                            
-                                    
-
-                                    if Circle_times3==1:
-                                        Equal_info_between_of_the_cirlce_of_the_file_2=sda
+                        if len(data)==0:
+                            x4=0.0
+                            print(x4)
+                            raise SystemExit
                             
-                                    n = int(Equal_info_between_of_the_cirlce_of_the_file_2, 2)
-                                
-                                    width_bits=len(Equal_info_between_of_the_cirlce_of_the_file_2)
-                                    width_bits=(width_bits/8)*2
-                                    width_bits=str(width_bits)
-                                    width_bits="%0"+width_bits+"x"
-                             
-                                    width_bits3=binascii.unhexlify(width_bits % n)                                    
-                                    width_bits2=len(width_bits3)
-                                    
-                                    data=width_bits3
-                                  
-                                    lenf5=len(data)
-
-                                    sda=bin(int(binascii.hexlify(data),16))[2:]
-                                    lenf=len(sda)
-
-                                    lenf1=len(data)
-                                
-                                    count_bits=(lenf1*8)-lenf
-                                    z=0
-                                    if count_bits!=0:
-                                        while z<count_bits:
-                                            sda="0"+sda
-                                            z=z+1
-
-                                    Equal_info_between_of_the_cirlce_of_the_file_2=sda
-
-                                    lenf3=len(Equal_info_between_of_the_cirlce_of_the_file_2)
-                                lenf2=len(Equal_info_between_of_the_cirlce_of_the_file_2)
-                                #print(lenf2)
-                                if i==1:
-                                    if lenf7>=(2**40)-1:
-                                        raise SystemExit
-
-                                #########################################################################################################################################################
-                                
-                                
-                                if i==1:
-
-                                    Block_divide=""
-
-                                    lenf5=len(Equal_info_between_of_the_cirlce_of_the_file_2)
-
-                                    Equal_info_between_of_the_cirlce_of_the_file=Equal_info_between_of_the_cirlce_of_the_file_2
-                                 
-                                    lenf5=len(Equal_info_between_of_the_cirlce_of_the_file)
-                                    
-                                    
-                                    #Extract
-                            
-                                    s=""
-
-                                    Equal_info_between_of_the_cirlce_of_the_file=Equal_info_between_of_the_cirlce_of_the_file_2
-                                    lenf6=len(Equal_info_between_of_the_cirlce_of_the_file)
-                                    
-                                    Number_add_plus_one=""
-                                    Prime_Not=""
-                                    Times_6=""
-                                  
-                                    Equal_info_between_of_the_cirlce_of_the_file_17=""
-                   
-                                    g=0
-
-                                    Equal_info_between_of_the_cirlce_of_the_file=Equal_info_between_of_the_cirlce_of_the_file_2
-
-                                    lenf6=len(Equal_info_between_of_the_cirlce_of_the_file)                      
-                                    Equal_info_between_of_the_cirlce_of_the_file_17=""
-                                
-                                    Equal_info_between_of_the_cirlce_of_the_file=Equal_info_between_of_the_cirlce_of_the_file_2
-                                    
-                                    lenf6=len(Equal_info_between_of_the_cirlce_of_the_file)
-                                
-                                    add_bits=""
-
-                                    Times_6=""
-
-                                    #Compression
-
-                                    sda10=""
-                                    Translate_info_Decimal=""
-                                    
-                                    Equal_info_between_of_the_cirlce_of_the_file_17=""
+                      
                  
-                                    if   Circle_times2==0 and SpinS==0:
-                                    	Equal_info_between_of_the_cirlce_of_the_file="1"+Equal_info_between_of_the_cirlce_of_the_file
-                                    	SpinS=1
+                       
 
-                                    if Circle_times2>=(2**24)-1:
-                                            compress_or_not_compress=2
+                  
+                        s=str(data)
+                        
+                     
+                       
+                        lenf1=len(data)
+                        lenf5=len(data)
+                        
+                        assx=0
+                        qqqwz=0
+                       
+                        while assx<10:
+                       
+                            aas1=0
+                            a1=0
 
-                                    lenf6=len(Equal_info_between_of_the_cirlce_of_the_file)
-                                    Long_file=len(Equal_info_between_of_the_cirlce_of_the_file)
+                            cvf=cvf+1
+                            
+                            countraz=countraz+1
 
-                                    block=0
-                                    Deep_Block=Deep2*30
-
-                                    while block<Long_file:
-
-                                            Block_info_divide=Equal_info_between_of_the_cirlce_of_the_file[block:block+Deep_Block]
-
-                                            Long_Blcok_Size=len(Block_info_divide)
-
-                                            if Deep_Block!=Long_Blcok_Size:
-                                                    compress_or_not_compress=3
-
-
-                                            
-
-                                            compress_or_not_compress=1
-                                            
-                                            Number_of_the_file = int(Block_info_divide, 2)
-                                            
-                                            bit=""
-
-                                            e=(2**Deep2)-1
-                                            g=0
-                                            f=0
-                                            
-                                            while f!=1:
-                                                T1=Number_of_the_file%e
-                                                if T1==0:
-                                                        Number_of_the_file=Number_of_the_file//e
-                                                        f=1
-                                                        bit="0"
-
-                                                else:
-                                                        e=e+1
-                                                        
-                                                        g=g+1
-                                                  
-                                                if g>(2**(Deep-1))-1:
-                                                        bit="1"
-                                                        Number_of_the_file=Number_of_the_file-1
-                                                        f=1
-                                               
-                                            if  g>(2**(Deep-1))-1:
-                                                    e=(2**Deep2)-1
-                                                    g=0
-                                                    f=0
-                                                
-                                                    while f!=1:
-                                                        T1=Number_of_the_file%e
-                                                        if T1==0:
-                                                                Number_of_the_file=Number_of_the_file//e
-                                                                f=1
-                                                                bit="1"
-                                                           
-                                                        else:
-                                                                e=e+1
-                                                                
-                                                                g=g+1
-                                                                
-                                                        if g>(2**(Deep-1))-1:
-                                                                compress_or_not_compress=3
-                                                                bit=""
-                                                                
-                                                                f=1       
-                                                       
-                                            
-                                            if Number_of_the_file<0:
-                                                                compress_or_not_compress=3
-                                            
-                                          
-                                            if compress_or_not_compress==1:
-                                                
-                                                    Equal_info_between_of_the_cirlce_of_the_file_17=bin(Number_of_the_file)[2:]
-                                           
-                                            if compress_or_not_compress==1:
-                                                                          
-                                                    Equal_info_between_of_the_cirlce_of_the_file_23=bin(g)[2:]
-                                                    hr=Deep-1
-                                                    
-                                                        
-                                                    lenf=len(Equal_info_between_of_the_cirlce_of_the_file_23)
-                                                    if lenf>Deep-1:
-                                                        compress_or_not_compress=3
-
-                                                    if compress_or_not_compress==1:
-                                                            
-                                                            add_bits4=""
-                                                            count_bits=hr-lenf%hr
-                                                            z=0
-                                                            if count_bits!=0:
-                                                                if count_bits!=hr:
-                                                                        while z<count_bits:
-                                                                                add_bits4="0"+add_bits4
-                                                                                z=z+1
-             
-                                            if compress_or_not_compress==1:
-                                                   
-                                                    Block_left=Equal_info_between_of_the_cirlce_of_the_file_17+add_bits4+Equal_info_between_of_the_cirlce_of_the_file_23+bit
-                                                    sda18=Equal_info_between_of_the_cirlce_of_the_file
-                                                    
-                                                    lenf=len(Block_left)
-                                                    hr=(Deep_Block-2)
-                                                            
-                                                    add_bits4=""
-                                                    count_bits=hr-lenf%hr
-                                                    z=0
-                                                    if count_bits!=0:
-                                                        if count_bits!=hr:
-                                                                while z<count_bits:
-                                                                        add_bits4="0"+add_bits4
-                                                                        z=z+1
-                                                    Block_left_count=add_bits4+Block_left
-                                                    
-                                                    lenf=len("1"+add_bits4+Block_left)
-                                                    if lenf==(Deep_Block-1):
-                                                            #print(lenf)
-                                                            Block_divide=Block_divide+"1"+add_bits4+Block_left
-
-                                                    elif lenf!=(Deep_Block-1):
-                                                            compress_or_not_compress=3
-                                                            
-                                            
-                                           
-                                            
-
-                                            if compress_or_not_compress==3:
-                                                    
-                                                    Block_divide=Block_divide+"0"+Block_info_divide
-                                           
-                                            block=block+Deep_Block
-                                            
-                                    
-
-                                    Equal_info_between_of_the_cirlce_of_the_file_17=Block_divide
-                                    lenfS=len(Block_divide)
-                                    #print(lenfS)
-                                    
-                                            
-
-                                    Block_divide=""
-
-                                    Circle_times2=Circle_times2+1
-                                    if lenfS>=lenf6:
-                                            compress_or_not_compress=2
-                                            Circle_times2=Circle_times2-1
-                                            Equal_info_between_of_the_cirlce_of_the_file_17=Equal_info_between_of_the_cirlce_of_the_file
-                                    
-                                    
-                                  
-                                    Equal_info_between_of_the_cirlce_of_the_file_2=Equal_info_between_of_the_cirlce_of_the_file_17
-
-                                    
-                                    
-
-                                    if   lenfS<=Deep3 or compress_or_not_compress==2:
-                                    	   
-                                            Equal_info_between_of_the_cirlce_of_the_file0=bin(Deep)[2:]
-                                            lenf=len(Equal_info_between_of_the_cirlce_of_the_file0)
-
-                                            add_bits8=""
-                                            count_bits=16-lenf%16
-                                            z=0
-                                            if count_bits!=0:
-                                                if count_bits!=16:
-                                                        while z<count_bits:
-                                                         	add_bits8="0"+add_bits8
-                                                         	z=z+1
-                                     
-                                    if   lenfS<=Deep3 or compress_or_not_compress==2:
-                                    	   
-                                            Equal_info_between_of_the_cirlce_of_the_file_29=bin(Circle_times2)[2:]
-                                            lenf=len(Equal_info_between_of_the_cirlce_of_the_file_29)
-
-                                            add_bits7=""
-                                            count_bits=24-lenf%24
-                                            z=0
-                                            if count_bits!=0:
-                                                if count_bits!=24:
-                                                        while z<count_bits:
-                                                         	add_bits7="0"+add_bits7
-                                                         	z=z+1
-                                            		
-
-                                    if   lenfS<=Deep3 or compress_or_not_compress==2:
-
-                                                lenf=len(Equal_info_between_of_the_cirlce_of_the_file_17)
-                                                add_bits=""
-                                                count_bits=8-lenf%8
-                                                if count_bits==8:
-                                                	count_bits=0
-                                                count_bits2=count_bits
-                                                z=0
-                                                if count_bits!=0:
-                                                        if count_bits!=8:
-                                                                while z<count_bits:
-                                                                        add_bits="0"+add_bits
-                                                                        z=z+1
-
-                                    if   lenfS<=Deep3 or compress_or_not_compress==2:
-                                    	   
-
-
-                                            Equal_info_between_of_the_cirlce_of_the_file1=bin(count_bits2)[2:]
-                                            lenf=len(Equal_info_between_of_the_cirlce_of_the_file1)
-
-                                            add_bits9=""
-                                            count_bits=8-lenf%8
-                                            z=0
-                                            if count_bits!=0:
-                                                if count_bits!=8:
-                                                        while z<count_bits:
-                                                         	add_bits9="0"+add_bits9
-                                                         	z=z+1       
-
-                                    if   lenfS<=Deep3 or compress_or_not_compress==2:
-                                            lenf=len(Equal_info_between_of_the_cirlce_of_the_file_17)                                           
-                                            Equal_info_between_of_the_cirlce_of_the_file_17=add_bits9+Equal_info_between_of_the_cirlce_of_the_file1+add_bits8+Equal_info_between_of_the_cirlce_of_the_file0+add_bits7+Equal_info_between_of_the_cirlce_of_the_file_29+add_bits+Equal_info_between_of_the_cirlce_of_the_file_17
-
-                                    if   lenfS<=Deep3 or compress_or_not_compress==2:
-                                                
-                                    		L=len(Equal_info_between_of_the_cirlce_of_the_file_17)
-                                    		n = int(Equal_info_between_of_the_cirlce_of_the_file_17, 2)
-                                    		width_bits=len(Equal_info_between_of_the_cirlce_of_the_file_17)
-                                    		width_bits=(width_bits//8)*2
-                                    		width_bits=str(width_bits)
-                                    		width_bits="%0"+width_bits+"x"
-                                    		width_bits3=binascii.unhexlify(width_bits % n)
-                                    		width_bits2=len(width_bits3)
-                                    		add_bitszzza=""
-                                    		add_bitszs=""
-                                    		Equal_info_between_of_the_cirlce_of_the_file_2=Times_6
-                                    		
-                                    		with open(nameas, "wb") as f2:
-                                    	
-                                    			
-
-                                    			f2.write(width_bits3)
-                                    	
-                                    		x2 = time()
-                                    		x3=x2-x
-                                    		xs=float(x3)
-                                    		return print(x3)
-                                    		
-                                if i==2:
-
-                                    Equal_info_between_of_the_cirlce_of_the_file_17=""
-                              
-                                    Equal_info_between_of_the_cirlce_of_the_file=Equal_info_between_of_the_cirlce_of_the_file_2
-                                    
-                                    lenf6=len(Equal_info_between_of_the_cirlce_of_the_file)
-
-                                    add_bits=""
-
-                                    Times_6=""
-
-                                    #Extract
-
-                                    sda10=""
-                                    Translate_info_Decimal=""
-                                  
-                                    Number_add_plus_one=""
-                                    Prime_Not=""
-                                    Times_6=""
-                                    Block_divide=""
+                            with open(nameas, "ab") as f2:
+                                if countraz==1:
+                                    size_data=bin(int(binascii.hexlify(data),16))[2:]
+                                    lenf=len(size_data)
+                                    lenf1=len(data)
                                 
-                                    Number_of_the_file=0
-                                    Prime_Not=0
-                                 
-                                    if C==1:
-                                        if   Circle_times2==0:
-
-
-                                                Translate_info_Decimal=Equal_info_between_of_the_cirlce_of_the_file[0:8]
-                                                Translate_info_Decimal_2 = int(Translate_info_Decimal, 2)
-                                                if Translate_info_Decimal_2>7:
-                                                        Corrupted=1
-                                                Equal_info_between_of_the_cirlce_of_the_file=Equal_info_between_of_the_cirlce_of_the_file[8:]
-                                                lenf6=len(Equal_info_between_of_the_cirlce_of_the_file)
-
-                                                sda10=Equal_info_between_of_the_cirlce_of_the_file[0:16]
-                                                Deep5 = int(sda10, 2)
-                                                Deep5=Deep5+2
-                                                Deep4=Deep5-1
-                                                Equal_info_between_of_the_cirlce_of_the_file=Equal_info_between_of_the_cirlce_of_the_file[16:]
-                                                lenf6=len(Equal_info_between_of_the_cirlce_of_the_file)
-                                                Deep7=Deep5-2
-                                                
-                                                Times_6=Equal_info_between_of_the_cirlce_of_the_file[0:24]
-                                                T = int(Times_6, 2)
-                                                Equal_info_between_of_the_cirlce_of_the_file=Equal_info_between_of_the_cirlce_of_the_file[24:]
-                                                lenf6=len(Equal_info_between_of_the_cirlce_of_the_file)
-                                                print("Deep: ")
-                                                print(Deep7-1)
-                                                
-                                        if   Circle_times2>0:
-                                        	Translate_info_Decimal_2=0
-                                        
-                                        	
-    
-                                        if C==1 and T!=0:
-                                                Equal_info_between_of_the_cirlce_of_the_file=Equal_info_between_of_the_cirlce_of_the_file[Translate_info_Decimal_2:]
-                                                lenf6=len(Equal_info_between_of_the_cirlce_of_the_file)
-
-
-                                                Long_file=len(Equal_info_between_of_the_cirlce_of_the_file)
-
-                                                block=0
-                                                Deep_Block=Deep5*30
-                                                Block_divide=""
-                                                
-
-                                                while block<Long_file:
-                                                        
-                                                        Block_info_divide=Equal_info_between_of_the_cirlce_of_the_file[block:block+1]
-
-                                                        if Block_info_divide=="1":
-                                                                block=block+1
-                                                                Block_info_divide=Equal_info_between_of_the_cirlce_of_the_file[block:block+Deep_Block-1]
-
-                                                                lenf6=len(Block_info_divide)
-                                                                #print(lenf6)
-                                                                
-                                                
-                                                                Number_add_plus_one=Block_info_divide[lenf6-Deep4-1]
-                                                                Prime_Not=Block_info_divide[lenf6-1:lenf6]
-                                                                Block_info_divide=Block_info_divide[0:lenf6-Deep4-1]
-                                                        
-                                                                
-                                                                Number_of_the_file = int(Block_info_divide, 2)
-                                                                Number_add_plus_one_2 = int(Number_add_plus_one, 2)
-                                                                Prime_Not = int(Prime_Not, 2)
-                                                                Hole_Number_information=(2**Deep5)-1
-                                                                add_ones_together=Hole_Number_information+Number_add_plus_one_2
-                                                                Number_of_the_file=Number_of_the_file*add_ones_together
-                                                                Number_of_the_file=Number_of_the_file+Prime_Not
-
-                                                                Block_compress=bin(Number_of_the_file)[2:]
-
-                                                                lenf=len(Block_compress)
-                                                                Block_compress_full=""
-                                                                add_bits18=""
-                                                                count_bits=Deep_Block-lenf
-                                                                z=0
-                                                                if count_bits!=0:
-                                                                        if count_bits!=Deep_Block:
-                                                                                while z<count_bits:
-                                                                                        add_bits18="0"+add_bits18
-                                                                                        z=z+1
-                                                        
-                                                                Block_compress_full=add_bits18+Block_compress
-                                                                Block_divide=Block_divide+Block_compress_full
-                                                                block=block+(Deep_Block-1)
-
-                                                        elif Block_info_divide=="0":
-                                                                block=block+1
-                                                                Block_not_compress=Equal_info_between_of_the_cirlce_of_the_file[block:block+Deep_Block]
-                                                                Block_divide=Block_divide+Block_not_compress
-                                                                long=len(Block_not_compress)
-                                                                Deep_Block_not_compress=long
-                                                                block=block+Deep_Block_not_compress
-
-                                                                
-                                    Times_6=Number_add_plus_one
-                                    Number_add_plus_one=""
-                                      
-                                    #####################################################################################################################################################
-                                   
-                                    Prime_Not=""
-                                    
-                                    
-                                    Equal_info_between_of_the_cirlce_of_the_file_17=Block_divide
-                                    Block_divide=""
-                                     
-                                    Equal_info_between_of_the_cirlce_of_the_file_2=Equal_info_between_of_the_cirlce_of_the_file_17
+                                    xc=(lenf1*8)-lenf
+                                    z=0
+                                    if xc!=0:
+                                        while z<xc:
+                                            size_data="0"+size_data
+                                            z=z+1
+                                            
                                    
 
-                                    if i==2:
-                                        Make_togher=""
-                                        Make_togher=Times_6
-                                        Number_add_plus_one=""
-                                        add_bits=""
-                                        if C==1 and T!=0:
-                                                Circle_times2=Circle_times2+1
+                                    if countraz==1:
+                                        size_data2=size_data
+                            
+                                    n = int(size_data2, 2)
+                                
+                                    qqwslenf=len(size_data2)
+                                    qqwslenf=(qqwslenf/8)*2
+                                    qqwslenf=str(qqwslenf)
+                                    qqwslenf="%0"+qqwslenf+"x"
+                             
+                                    jl=binascii.unhexlify(qqwslenf % n)
+                                    sssssw=len(jl)
+                                    
+                                    data=jl
+                                    qqqwz=qqqwz+1
+                                   
+                                    if countraz==1:
 
-                                        lenf9=len(Equal_info_between_of_the_cirlce_of_the_file_17)
-                                        #print(Circle_times2)
-                                        
-                                        
-                                        if  Circle_times2==T:
-                                        	   
-                                            if C==1 and T==0:
-                                            	Equal_info_between_of_the_cirlce_of_the_file_17=Equal_info_between_of_the_cirlce_of_the_file[1:]
-                                            	lenf=len(Equal_info_between_of_the_cirlce_of_the_file_17)
-                                            	add_bits=""
-                                            	count_bits=8-lenf%8
-                                            	z=0
-                                            	if count_bits!=0:
-                                            	        if count_bits!=8:
-                                            	            while z<count_bits:
-                                            	            	add_bits="0"+add_bits
-                                            	            	z=z+1
-                                            	Equal_info_between_of_the_cirlce_of_the_file_17=add_bits+Equal_info_between_of_the_cirlce_of_the_file_17
-                                        
-                                            if C==1 and T!=0:
- 
-                                            	Equal_info_between_of_the_cirlce_of_the_file_17=Equal_info_between_of_the_cirlce_of_the_file_17[1:]
-                                            	lenf14=len(Equal_info_between_of_the_cirlce_of_the_file_17)
-                                            	#print(lenf14)
-                                            	lenf16=lenf14%8
-                                            	
-                                            		
-                                            	
-                                            	lenf=len(Equal_info_between_of_the_cirlce_of_the_file_17)
-                                            	add_bits=""
-                                            	count_bits=8-lenf%8
-                                            	z=0
-                                            	if count_bits!=0:
-                                            	        if count_bits!=8:
-                                            	            while z<count_bits:
-                                            	            	add_bits="0"+add_bits
-                                            	            	z=z+1
-                                            	Equal_info_between_of_the_cirlce_of_the_file_17=add_bits+Equal_info_between_of_the_cirlce_of_the_file_17
+                                        lenf5=len(data)
 
-                                            L=len(Equal_info_between_of_the_cirlce_of_the_file_17)
-                                         
-                                            n = int(Equal_info_between_of_the_cirlce_of_the_file_17, 2)
-                                            width_bits=len(Equal_info_between_of_the_cirlce_of_the_file_17)
-                                            width_bits=(width_bits//8)*2
-                                            width_bits=str(width_bits)
-                                            width_bits="%0"+width_bits+"x"
-                                            width_bits3=binascii.unhexlify(width_bits % n)
-                                            width_bits2=len(width_bits3)
+                                    size_data=bin(int(binascii.hexlify(data),16))[2:]
+                                    lenf=len(size_data)
 
-                                            add_bitszzza=""
-                                            add_bitszs=""
-                                            Equal_info_between_of_the_cirlce_of_the_file_2=Times_6
-                                             
-                                            with open(nameas, "wb") as f2:
-                                             
-                                               
-                                            	f2.write(width_bits3)
+                                    lenf1=len(data)
+                                
+                                    xc=(lenf1*8)-lenf
+                                    z=0
+                                    if xc!=0:
+                                        while z<xc:
+                                            size_data="0"+size_data
+                                            z=z+1
+
+                                    size_data2=size_data
+
+                                    lenf3=len(size_data2)
+                                lenf2=len(size_data2)  
+                                
+                                size_data3=size_data2
+                                long_file=len(size_data3)
+                                size_data10=""
+                                size_data9=""
+                                size_data5=""
+                                fda5=""
+                                size_data4=""
+                                size_data6=""
+                                size_data7=""
+                                size_data12=""
+                                size_data19=""
+                                size_data10=size_data3
+                                predict=-1
+                                predict2=-1
+                                long_block=16
+                                Find=1
+                                Left_Right=0
+                                
+                                times_of_times=0
+                                Where4=0
+                                str_find=""
+                          
+                                
+
+                                cvf1=1
+  
+                                if cvf1==1:
+                                    times_compression=0  
+                                    compress_no=0
+                                    compress_yes=0
+                                    long2=len(size_data3)
+                                    Deep=long2//28
+                                    times2=Deep
+                                    long_block=1024
+                                    Where5=0
+                                    
+                                
+                                    
+                                    
+                                    block_compression2=0
+                                    
+                                    start=-1
+                                    Left_Right=0
+                                    Find_guess=0
+                                    while Find_guess!=1:
+                                        
+                                        while  len(size_data3)>=1400:
+
+
+                                                    
+                                                        
+
+                                                    start=0
+                                                    blocks=long_block
+                                                    size_compress=63
+                                                    end=blocks
+                                                    
+                                                    find_matches1_number1=0
+                                                
+                                                       
+                                                    
+                                                    predict=predict+1
+                                                    if predict==16:
+                                                        predict=0
+                                                    
+                                                    
+                                                    predict2=predict2+1
+                                                    if predict2==4:
+                                                        predict2=0                                             
+                                                                                                                                        
+                
+                                                    block=0
+                                                    b=format(predict,'04b')
+                                                    b2=format(predict2,'02b')
+                                                    
+                                                    Find=1
+
+                                                    Left_Right=Left_Right+1
+
+                                                    if Left_Right==2:
+                                                        Left_Right=1
+                                                    
+                                                    long=len(size_data3)
+                                                    #print(long)
+                                                    
+                                                    while block<long:
+                                                                                str_find=size_data3[block:block+blocks]
+
+                                                                                if Left_Right==1:
+                                                                                    if str_find[0:4]==b and str_find[4:6]==b2:
+
+                                                                                        size_data4=b2+b2+str_find[6:]
+                                                                                        
+
+                                                                                    elif str_find[0:4]==b and str_find[4:6]!=b2:
+
+
+                                                                                        size_data4=b2+str_find[4:]
+                                                                                
+
+
+                                                                                    elif str_find[0:4]!=b and str_find[4:6]==b2:
+
+                                                                                        size_data4=str_find[:4]+b2+str_find[6:]
+                                                                                        
+                                                                                    elif str_find[0:4]!=b and str_find[4:6]!=b2:
+
+                                                                                        size_data4=str_find
+                                                                                        
+                                                                                        
+                                                                                elif Left_Right==2:
+
+                                                                                    if str_find[0:4]==b2 and str_find[4:6]==b:
+
+                                                                                        size_data4=b2+b2+str_find[6:]
+
+                                                                                    elif str_find[0:4]==b2 and str_find[4:6]!=b:
+
+                                                                                        size_data4=str_find[:4]+b2+str_find[6:]
+                                                                                        
+                                                                                    elif str_find[0:4]!=b2 and str_find[4:6]==b:
+
+                                                                                        size_data4=b2+str_find[4:]
+                                                                                        
+                                                                                    elif str_find[0:4]!=b2 and str_find[4:6]!=b:
+                                                                                        size_data4=str_find
+                                                                                        
+                                                                                
+                                                                                size_data6=size_data6+size_data4        
+                                                                                block=block+blocks
+                                                                                #print(block)
+                                                         
+                                                    times_compression=times_compression+1
+                                                    
+                                                    #print(times_compression)
+                                                    
+                                                    
+                                                         
+                                                        
+                
+                                                    size_data3=size_data6
+                                                    
+                                                    Where4=0
+                                                    
+                                                    
+                                                    #print(len(size_data6))
+                                                    size_data6=""
+                                                    times_of_times=times_of_times+1
+                                                    
+                                        long_after=len(size_data3)
+                                        
+                                        size_data9=size_data3
+
+                                        
+                                        long_file=len(size_data10)
+                                        long_after=len(size_data9)
+                                        #print(long_after) 
+                                       
+                                        if long_file>long_after or long_block<=long_after:
+                                           
+                                            size_data11=size_data9
+                                            Find_guess=1
+                                            
+                                        
+       
+                                    size_data24=bin(times_of_times)[2:]
+                                    lenf=len(size_data24)
+                                    if lenf>40:
+                                        print("File too big")
+                                        raise SystemExit
+                                                                                            
+                                                                                            
+                                                                                        
+                                    add_bits118=""
+                                    count_bits=40-lenf%40
+                                    z=0
+                                    if count_bits!=0:
+                                        if count_bits!=40:
+                                            while z<count_bits:
+                                                add_bits118="0"+add_bits118
+                                                z=z+1
+                                                                                                                    
+                                                                                                                                
+                                    lenf=len(add_bits118)
+                                    size_data24=bin(lenf)[2:]
+                                    lenf=len(size_data24)
+                                    if lenf>6:
+                                        print("File too big")
+                                        raise SystemExit
+                                                                                            
+                                                                                            
+                                                                                        
+                                    add_bits118=""
+                                    count_bits=6-lenf%6
+                                    z=0
+                                    if count_bits!=0:
+                                        if count_bits!=6:
+                                            while z<count_bits:
+                                                add_bits118="0"+add_bits118
+                                                z=z+1
+                                                                                                                    
+                                                                                                                                
+                                    size_data11=add_bits118+size_data24+size_data11
+                                    
+                                    size_data11="1"+size_data11
+                                    
+                                    
+                           
+                                    lenf=len(size_data11)
+                                        
+                                    add_bits118=""
+                                    count_bits=8-lenf%8
+                                    z=0
+                                    if count_bits!=0:
+                                            if count_bits!=8:
+                                                while z<count_bits:
+                                                    add_bits118="0"+add_bits118
+                                                    z=z+1
+                                                                    
+                                                                    
+                                    size_data11=add_bits118+size_data11
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    n = int(size_data11, 2)
+                                
+                                    qqwslenf=len(size_data11)
+                                    qqwslenf=(qqwslenf/8)*2
+                                    qqwslenf=str(qqwslenf)
+                                    qqwslenf="%0"+qqwslenf+"x"
+                             
+                                    jl=binascii.unhexlify(qqwslenf % n)
+                                
+                                    size_after=len(jl)
+                                   
+                                    qqqwz=qqqwz+1
+                                    szxzzza=""
+                                    szxzs=""
+                            
+                                    assxw=assxw+1
+                                    if assxw==1:
+                                        assx=10
+                                        if assx==10:
+
+                                            f2.write(jl)
                                             x2 = time()
                                             x3=x2-x
-                                            xs=float(x3)
                                             return print(x3)
-   
-d=compression()
 
-xw1=d.cryptograpy_compression4()
+    def cryptograpy_unpack(self):                      
+                 if namez=="e":
+                    
+                    name = input("What is name of file? ")
+                    if os.path.exists(name):
+                            print('Path is exists!')
+                    else:
+                            print('Path is not exists!')
+                            raise SystemExit
+                    Portal=2
+                    namea="file.W"
+                    namem=""
+                    namema="?"
+                    Deep=0
+                 
+                    assxw=0
+                    blockw=5
+                    blockw1=4
+                    nameas=name
+                    nac=len(nameas)
+                    name_cut=""
+                    name_cut=len(".bin")
+                    nameas=name
+                    
+                    name_long=len(nameas)
+                    nameSS=name[name_long-name_cut:]
+                    if nameSS!=".bin":
+                        x3=0.0
+                        return print(x3)
+                        
+                    nameas=name[:name_long-name_cut]
+                    nac=len(nameas)
+                    
+                    Deep=1000
+                    
+                    
+                    nac=len(nameas)
+                    sw1=0
+                    sw2=0
+                    countraz=0
+                    cvf=2
+                    cvf1=0
+                    s=""
+                    e2=0
+                    e3=2
+                    e4=""
+                    c=2
+                    sw=2
+                    elw=0
+                    sw3=0
+                    sw4=0
+                    sw5=0
+                    sw6=0
+                    sw7=0
+                    n=0
+                    n1=0
+                    n2=0
+                    n3=0
+                 
+                    size_data3=""
+                    size_data2=""
+
+                    sscvf=0
+                    
+                    qqqqwzl=0
+
+                    block=1
+
+                    x=0
+                    x1=0
+                    x2=0
+                    x = time()
+
+                    with open(nameas, "w") as f4:
+                            f4.write(s)
+                    with open(nameas, "a") as f3:
+                            f3.write(s)
+                    with open(name, "rb") as binary_file:
+
+                       # Read the whole file at once
+                        
+                        data = binary_file.read()
+                        if len(data)==0:
+                            x4=0.0
+                            print(x4)
+                            raise SystemExit
+                     	
+
+                        s=str(data)
+                       
+                        lenf1=len(data)
+                        lenf5=len(data)
+                        
+                        assx=0
+                        qqqwz=0
+                       
+                        while assx<10:
+                       
+                            aas1=0
+                            a1=0
+
+                            cvf=cvf+1
+                            
+                            countraz=countraz+1
+
+                            with open(nameas, "ab") as f2:
+                                if countraz==1:
+                                    size_data=bin(int(binascii.hexlify(data),16))[2:]
+                                    lenf=len(size_data)
+                                    lenf1=len(data)
+                                
+                                    xc=(lenf1*8)-lenf
+                                    z=0
+                                    if xc!=0:
+                                        while z<xc:
+                                            size_data="0"+size_data
+                                            z=z+1
+                                            
+                                   
+
+                                    if countraz==1:
+                                        size_data2=size_data
+                            
+                                    n = int(size_data2, 2)
+                                
+                                    qqwslenf=len(size_data2)
+                                    qqwslenf=(qqwslenf/8)*2
+                                    qqwslenf=str(qqwslenf)
+                                    qqwslenf="%0"+qqwslenf+"x"
+                             
+                                    jl=binascii.unhexlify(qqwslenf % n)
+                                    sssssw=len(jl)
+                                    
+                                    data=jl
+                                    qqqwz=qqqwz+1
+                                   
+                                    if countraz==1:
+
+                                        lenf5=len(data)
+
+                                    size_data=bin(int(binascii.hexlify(data),16))[2:]
+                                    lenf=len(size_data)
+
+                                    lenf1=len(data)
+                                
+                                    xc=(lenf1*8)-lenf
+                                    z=0
+                                    if xc!=0:
+                                        while z<xc:
+                                            size_data="0"+size_data
+                                            z=z+1
+
+                                    size_data2=size_data
+
+                                    lenf3=len(size_data2)
+                                lenf2=len(size_data2)  
+                                x4=1
+                                if x4==1:
+
+                                    size_data3=size_data2
+                                    if size_data3[0:9]=="000000001":
+                                        size_data3=size_data3[9:]
+                                    elif size_data3[0:8]=="00000001":
+                                        size_data3=size_data3[8:]
+                                    elif size_data3[0:7]=="0000001":
+                                        size_data3=size_data3[7:]
+                                    elif size_data3[0:6]=="000001":
+                                        size_data3=size_data3[6:]
+                                    elif size_data3[0:5]=="00001":
+                                        size_data3=size_data3[5:]
+                                    elif size_data3[0:4]=="0001":
+                                        size_data3=size_data3[4:]
+                                    elif size_data3[0:3]=="001":
+                                        size_data3=size_data3[3:]
+                                    elif size_data3[0:2]=="01":
+                                        size_data3=size_data3[2:]
+                                    elif size_data3[0:1]=="1":
+                                        size_data3=size_data3[1:]
+
+                                    Times_extract_of_time_zeroes=size_data3[:6]
+                                    #print(Times_extract_of_time_zeroes)
+                                    
+                                    times_of_times=int(Times_extract_of_time_zeroes,2)
+                                    size_data3=size_data3[6:]
+
+                                    Forty_bits=40
+                                    Times_bits=Forty_bits-times_of_times
+
+                                    Times_extract_of_time_times=size_data3[:Times_bits]
+                                    Times_extract_of_time_times_number=int(Times_extract_of_time_times,2)
+                                    size_data3=size_data3[Times_bits:]
+
+                                       
+                                    Times_count=0
+                                    while Times_extract_of_time_times_number!=Times_count:
+
+
+
+                                        Long_block2_not_compress_zeroes=size_data3[:6]
+                                        Long_block2_not_compress_zeroes_number=int(Long_block2_not_compress_zeroes,2)
+                                        #print(Long_block2_not_compress_zeroes_number)
+                                        size_data3=size_data3[6:]
+
+                                        Forty_bits=40
+                                        Times_bits=Forty_bits-Long_block2_not_compress_zeroes_number
+
+                                        Not_compress_size_of_block=size_data3[:Times_bits]
+                                        Not_compress_size_of_block_number=int(Not_compress_size_of_block,2)
+                                        size_data3=size_data3[Times_bits:]
+
+
+                                        Long_block2_compress_zeroes=size_data3[:6]
+                                        Long_block2_compress_zeroes_number=int(Long_block2_not_compress_zeroes,2)
+                                        size_data3=size_data3[6:]
+
+                                        Forty_bits=40
+                                        Times_bits=Forty_bits-Long_block2_compress_zeroes_number
+
+                                        compress_size_of_block=size_data3[:Times_bits]
+                                        compress_size_of_block_number=int(compress_size_of_block,2)
+                                        size_data3=size_data3[Times_bits:]
+
+
+                                        Times_zeroes=size_data3[:6]
+                                        Times_zeroes_number=int(Times_zeroes,2)
+                                        size_data3=size_data3[6:]
+
+                                        Forty_bits=40
+                                        Times_bits=Forty_bits-Times_zeroes_number
+
+                                        Times_zeroes_size_of_block=size_data3[:Times_bits]
+                                        Times_zeroes_size_of_block_number=int(Times_zeroes_size_of_block,2)
+                                        size_data3=size_data3[Times_bits:]
+                                    
+
+                                        if size_data3[0:9]=="000000001":
+                                            size_data3=size_data3[9:]
+                                        elif size_data3[0:8]=="00000001":
+                                            size_data3=size_data3[8:]
+                                        elif size_data3[0:7]=="0000001":
+                                            size_data3=size_data3[7:]
+                                        elif size_data3[0:6]=="000001":
+                                            size_data3=size_data3[6:]
+                                        elif size_data3[0:5]=="00001":
+                                            size_data3=size_data3[5:]
+                                        elif size_data3[0:4]=="0001":
+                                            size_data3=size_data3[4:]
+                                        elif size_data3[0:3]=="001":
+                                            size_data3=size_data3[3:]
+                                        elif size_data3[0:2]=="01":
+                                            size_data3=size_data3[2:]
+                                        elif size_data3[0:1]=="1":
+                                            size_data3=size_data3[1:]
+
+                                        Blocks_long=size_data3[0:40]
+                                        size_data3=size_data3[40:]
+                                        Blocks_long_number=int(Blocks_long,2)
+                                        Read_times_compression_info=""
+                                        
+                                        Read_times_compression_info=size_data3[0:40]
+                                        
+                                        Save_predict_find=""
+                                        Read_times_compression_number =int(Read_times_compression_info,2)
+                                        
+                                        size_data3=size_data3[40:]
+
+                                        
+
+                                        predict=-1
+                                        count_times_compression=0
+                                    
+
+                                        while Read_times_compression_number!=count_times_compression:
+                                            predict=predict+1
+                                            if predict==16:
+                                                predict=0
+                                            b=format(predict,'04b')
+                                            if b[0:2]=="01":
+                                                b="10"+b[2:]
+                                            Save_predict_find=b+Save_predict_find
+                                            count_times_compression=count_times_compression+1
+                                                    
+
+                                        #print(Save_predict_find)
+
+                                        if size_data3[0:9]=="000000001":
+                                            size_data3=size_data3[9:]
+                                        elif size_data3[0:8]=="00000001":
+                                            size_data3=size_data3[8:]
+                                        elif size_data3[0:7]=="0000001":
+                                            size_data3=size_data3[7:]
+                                        elif size_data3[0:6]=="000001":
+                                            size_data3=size_data3[6:]
+                                        elif size_data3[0:5]=="00001":
+                                            size_data3=size_data3[5:]
+                                        elif size_data3[0:4]=="0001":
+                                            size_data3=size_data3[4:]
+                                        elif size_data3[0:3]=="001":
+                                            size_data3=size_data3[3:]
+                                        elif size_data3[0:2]=="01":
+                                            size_data3=size_data3[2:]
+                                        elif size_data3[0:1]=="1":
+                                            size_data3=size_data3[1:]
+
+    
+
+                                        extract=0
+                                        
+                                        if size_data3[0:1]=="0":
+                                            extract=1
+                                        elif size_data3[0:1]=="1":
+                                            extract=2
+
+                                        size_data3[1:]
+                                        
+                                        
+                                        size_data12=""
+                                        #print(extract)
+                                        if extract==1:
+                                            size_data12=size_data3
+
+                                        elif extract==2:
+                                            times_compression=0
+                                            
+                                            compress_no=0
+                                            compress_yes=0
+                                            long2=len(size_data3)
+                                            Deep=Read_times_compression_number
+                                            times2=Deep
+                                            
+                                        
+                                            
+                                            
+                                            block_compression2=0
+                                          
+                                        
+                                            start=-1
+                                            while  times_compression<=Times_zeroes_size_of_block_number:
+
+                                                        start=0
+                                                        blocks=Blocks_long_number
+                                                        end=blocks
+                                                        
+                                                        find_matches1_number1=0
+                                                       
+                                                        
+                                                        
+                                                                                                     
+                                                                                                                                            
+                    
+                                                        block=0
+                                                        b=Save_predict_find[times_compression*4:(times_compression*4)+4]
+                                                        
+                                                        Find=1
+                                                        block_compression1=0
+                                                        block_compression=0
+                                                        block_compression2=0
+                                                        long=len(size_data3)
+                                                        #print(long)
+                                                        
+                                                        Binary_code1=""
+                                                        Circle_count=Binary_code[0:1]
+                                                        if Circle_count=="0":
+                                                            Binary_code=Binary_code[1:]
+                                                            Program=0
+                                                            
+                                                        Infromation_program=Binary_code
+                                                        Long_Info=len(Infromation_program)
+
+                                                        Blocks_count=0
+
+                                                        size_data3=size_data3[1:]
+                                                        
+                                                        while block<long:
+                                                                                    str_find_tree_maches1=size_data3[block:block+compress_size_of_block_number]
+                                                                                    sub_info="01"
+                                                                                    Blocks_count=Blocks_count+1
+
+                                                                                    find_matches1=str_find_tree_maches1.find(sub_info, start, end)
+                                                                                    find_matches1_1=int(find_matches1)
+
+                                                                                    Binary_code2=""
+                                                                                    blocks2=0
+                                                                                    Have_number=-1
+                                                                                    Program=0
+                                                                                    
+                                                                                    if Long_Info!=0:
+                                                                                        Program_code1=Infromation_program[Program:Program+1]
+                                                                                        if Program_code1=="1":
+                                                                                            Program=Program+1
+                                                                                            Not_compress_block_01=Infromation_program[:6]
+                                                                                            Not_compress_block_01_number=int(Not_compress_block_01,2)
+                                                                                            Infromation_program=Infromation_program[6:]
+
+                                                                                            Sixty_bits=63
+                                                                                            Times_bits=Sixty_bits-Not_compress_block_01_numbers
+
+                                                                                            Not_compress_block_01_number_size_of_block=Infromation_program[:Times_bits]
+                                                                                            Times_zeroes_size_of_block_number=int(Not_compress_block_01_number_size_of_block,2)
+                                                                                            Infromation_program=Infromation_program[Times_bits:]
+                                
+                                                                                
+                                                                                    if find_matches1_1==0 and Blocks_count!=Times_zeroes_size_of_block_number:
+                                                                                        size_data4=str_find_tree_maches1[:0]+b+str_find_tree_maches[2:]
+                                                                                        size_data12=size_data12+size_data4
+                                                                                        
+                                                                                       
+                                                                                        blocks2=Not_compress_size_of_block_number
+                                                                                        
+                                                                                    else:
+                                                                                        size_data4=str_find_tree_maches1
+                                                                                        size_data12=size_data12+size_data4
+                                                                                        
+                                                                                        
+                                                                                        blocks2=compress_size_of_block_number
+                                                                                        
+                                                                                    
+                                                                                    block=block+blocks2
+                                                                                    
+                                                        times_compression=times_compression+1
+                                                        #print(times_compression)
+                                                        size_data3=size_data12
+                                                        #print(size_data12)
+                                                        
+                                                        
+                                                        
+                                                        size_data12=""
+                                                        
+
+                                        Times_count=Times_count+1
+                                        
+                                        
+                                    lenf=len(size_data3)
+                                        
+                                    add_bits118=""
+                                    count_bits=8-lenf%8
+                                    z=0
+                                   
+                                    if count_bits!=0:
+                                          if count_bits!=8:
+                                               while z<count_bits:
+                                                   add_bits118="0"+add_bits118
+                                                   z=z+1
+                                                                    
+                                                                    
+                                    size_data3=add_bits118+size_data3
+                                      
+                                    n = int(size_data3, 2)
+                                    
+                                    
+                                    qqwslenf=len(size_data3)
+                                    qqwslenf=(qqwslenf/8)*2
+                                    qqwslenf=str(qqwslenf)
+                                    qqwslenf="%0"+qqwslenf+"x"
+                             
+                                    jl=binascii.unhexlify(qqwslenf % n)
+                                 
+                               
+                                    sssssw=len(jl) 
+                                  
+                                   
+
+                                    qqqwz=qqqwz+1
+                                    szxzzza=""
+                                    szxzs=""
+                                    
+                            
+                                    assxw=assxw+1
+                                    if assxw==1:
+                                        assx=10
+                                        if assx==10:
+                                        	
+                                            f2.write(jl)
+                                            x2 = time()
+                                            x3=x2-x
+                                            return print(x3)
+
+ 
+                  
+self=""                                
+d=compression()
+    
+xw=d.cryptograpy_compression()
+print(xw)
+
+xw1=d.cryptograpy_unpack()
 print(xw1)
