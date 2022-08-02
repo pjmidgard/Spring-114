@@ -197,7 +197,7 @@ class compression:
                                     long2=len(size_data3)
                                     Deep=long2//28
                                     times2=Deep
-                                    long_block=1024
+                                    long_block=15
                                     Where5=0
                                     
                                 
@@ -251,45 +251,51 @@ class compression:
                                                     
                                                     while block<long:
                                                                                 str_find=size_data3[block:block+blocks]
+                                                                                size_of_block=len(str_find)
 
-                                                                                if Left_Right==1:
-                                                                                    if str_find[0:4]==b and str_find[4:6]==b2:
+                                                                                if size_of_block!=blocks:
+                                                                                    size_data4=str_find
 
-                                                                                        size_data4=b2+b2+str_find[6:]
-                                                                                        
+                                                                                elif len(str_find)==blocks:
 
-                                                                                    elif str_find[0:4]==b and str_find[4:6]!=b2:
+                                                                                    if Left_Right==1:
+                                                                                        if str_find[0:4]==b and str_find[4:6]==b2:
+
+                                                                                            size_data4=b2+b2+str_find[6:]
+                                                                                            
+
+                                                                                        elif str_find[0:4]==b and str_find[4:6]!=b2:
 
 
-                                                                                        size_data4=b2+str_find[4:]
-                                                                                
+                                                                                            size_data4=b2+str_find[4:]
+                                                                                    
 
 
-                                                                                    elif str_find[0:4]!=b and str_find[4:6]==b2:
+                                                                                        elif str_find[0:4]!=b and str_find[4:6]==b2:
 
-                                                                                        size_data4=str_find[:4]+b2+str_find[6:]
-                                                                                        
-                                                                                    elif str_find[0:4]!=b and str_find[4:6]!=b2:
+                                                                                            size_data4=str_find[:4]+b2+str_find[6:]
+                                                                                            
+                                                                                        elif str_find[0:4]!=b and str_find[4:6]!=b2:
 
-                                                                                        size_data4=str_find
-                                                                                        
-                                                                                        
-                                                                                elif Left_Right==2:
+                                                                                            size_data4=str_find
+                                                                                            
+                                                                                            
+                                                                                    elif Left_Right==2:
 
-                                                                                    if str_find[0:4]==b2 and str_find[4:6]==b:
+                                                                                        if str_find[0:4]==b2 and str_find[4:6]==b:
 
-                                                                                        size_data4=b2+b2+str_find[6:]
+                                                                                            size_data4=b2+b2+str_find[6:]
 
-                                                                                    elif str_find[0:4]==b2 and str_find[4:6]!=b:
+                                                                                        elif str_find[0:4]==b2 and str_find[4:6]!=b:
 
-                                                                                        size_data4=str_find[:4]+b2+str_find[6:]
-                                                                                        
-                                                                                    elif str_find[0:4]!=b2 and str_find[4:6]==b:
+                                                                                            size_data4=str_find[:4]+b2+str_find[6:]
+                                                                                            
+                                                                                        elif str_find[0:4]!=b2 and str_find[4:6]==b:
 
-                                                                                        size_data4=b2+str_find[4:]
-                                                                                        
-                                                                                    elif str_find[0:4]!=b2 and str_find[4:6]!=b:
-                                                                                        size_data4=str_find
+                                                                                            size_data4=b2+str_find[4:]
+                                                                                            
+                                                                                        elif str_find[0:4]!=b2 and str_find[4:6]!=b:
+                                                                                            size_data4=str_find
                                                                                         
                                                                                 
                                                                                 size_data6=size_data6+size_data4        
@@ -301,7 +307,28 @@ class compression:
                                                     #print(times_compression)
                                                     
                                                     
-                                                         
+                                                    size_data24=bin(size_of_block)[2:]
+                                                    lenf=len(size_data24)
+                                                    if lenf>4:
+                                                        print("File too big")
+                                                        raise SystemExit
+                                                                                                            
+                                                                                                            
+                                                                                                        
+                                                    add_bits118=""
+                                                    count_bits=4-lenf%4
+                                                    z=0
+                                                    if count_bits!=0:
+                                                        if count_bits!=4:
+                                                            while z<count_bits:
+                                                                add_bits118="0"+add_bits118
+                                                                z=z+1
+                                                                                                                                    
+                                                                                                                                                
+                                                    
+                                                                                                                                    
+                                                                                                                                                
+                                                    size_data6=add_bits118+size_data24+size_data6     
                                                         
                 
                                                     size_data3=size_data6
