@@ -259,21 +259,19 @@ class compression:
                                                                                 elif len(str_find)==blocks:
 
                                                                                     if Left_Right==1:
-                                                                                        if str_find[0:4]==b and str_find[4:6]==b2:
-
-                                                                                            size_data4=b2+b2+str_find[6:]
+                         
                                                                                             
 
-                                                                                        elif str_find[0:4]==b and str_find[4:6]!=b2:
+                                                                                        elif str_find[0:4]==b:
 
 
                                                                                             size_data4=b2+str_find[4:]
                                                                                     
 
 
-                                                                                        elif str_find[0:4]!=b and str_find[4:6]==b2:
+                                                                                        elif str_find[0:2]==b2:
 
-                                                                                            size_data4=str_find[:4]+b2+str_find[6:]
+                                                                                            size_data4=str_find[2:4]+b2+str_find[6:]
                                                                                             
                                                                                         elif str_find[0:4]!=b and str_find[4:6]!=b2:
 
@@ -282,15 +280,12 @@ class compression:
                                                                                             
                                                                                     elif Left_Right==2:
 
-                                                                                        if str_find[0:4]==b2 and str_find[4:6]==b:
+                                                                                        if 
+                                                                                        elif str_find[0:4]==b2:
 
-                                                                                            size_data4=b2+b2+str_find[6:]
-
-                                                                                        elif str_find[0:4]==b2 and str_find[4:6]!=b:
-
-                                                                                            size_data4=str_find[:4]+b2+str_find[6:]
+                                                                                            size_data4=str_find[2:4]+b2+str_find[6:]
                                                                                             
-                                                                                        elif str_find[0:4]!=b2 and str_find[4:6]==b:
+                                                                                        elif str_find[0:2]==b:
 
                                                                                             size_data4=b2+str_find[4:]
                                                                                             
