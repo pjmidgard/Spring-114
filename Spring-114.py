@@ -177,7 +177,7 @@ class compression:
                                 size_data19=""
                                 size_data10=size_data3
                                 predict=-1
-                                predict2=-1
+                                predict2=5
                                 long_block=16
                                 Find=1
                                 Left_Right=0
@@ -210,7 +210,7 @@ class compression:
                                     Find_guess=0
                                     while Find_guess!=1:
                                         
-                                        while  len(size_data3)>=1400:
+                                        while  len(size_data3)>=240:
 
 
                                                     
@@ -230,9 +230,9 @@ class compression:
                                                         predict=0
                                                     
                                                     
-                                                    predict2=predict2+1
-                                                    if predict2==4:
-                                                        predict2=0                                             
+                                                    predict2=predict2-1
+                                                    if predict2==-1:
+                                                        predict2=4                                         
                                                                                                                                         
                 
                                                     block=0
