@@ -262,7 +262,7 @@ class compression:
                          
                                                                                             
 
-                                                                                        elif str_find[0:4]==b:
+                                                                                        if str_find[0:4]==b:
 
 
                                                                                             size_data4=b2+str_find[4:]
@@ -280,8 +280,8 @@ class compression:
                                                                                             
                                                                                     elif Left_Right==2:
 
-                                                                                        if 
-                                                                                        elif str_find[0:4]==b2:
+                                                                                        
+                                                                                        if str_find[0:4]==b2:
 
                                                                                             size_data4=str_find[2:4]+b2+str_find[6:]
                                                                                             
