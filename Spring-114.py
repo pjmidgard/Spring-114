@@ -460,6 +460,12 @@ class compression:
                     else:
                             print('Path is not exists!')
                             raise SystemExit
+                            
+                    x=0
+                    x1=0
+                    x2=0
+                    x = time()
+                    
                     Portal=2
                     namea="file.W"
                     namem=""
@@ -519,10 +525,7 @@ class compression:
 
                     block=1
 
-                    x=0
-                    x1=0
-                    x2=0
-                    x = time()
+                    
 
                     with open(nameas, "w") as f4:
                             f4.write(s)
