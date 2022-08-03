@@ -21,12 +21,6 @@ class compression:
                     else:
                             print('Path is not exists!')
                             raise SystemExit
-                            
-                    x=0
-                    x1=0
-                    x2=0
-                    x = time()
-                    
                     Deep=100
                     long_block=100
                         
@@ -76,7 +70,10 @@ class compression:
 
                     block=1
 
-                    
+                    x=0
+                    x1=0
+                    x2=0
+                    x = time()
 
                     with open(nameas, "w") as f4:
                             f4.write(s)
@@ -214,7 +211,7 @@ class compression:
                                     Find_guess=0
                                     while Find_guess!=1:
                                         
-                                        while  len(size_data3)>=1400:
+                                        while  len(size_data3)>=800:
 
 
                                                     
@@ -225,7 +222,7 @@ class compression:
                                                     size_compress=63
                                                     end=blocks
                                                     
-                                                   
+                                                    find_matches1_number1=0
                                                 
                                                     if predict3==1 or predict3==4:
                                                        predict=predict+1
@@ -460,12 +457,6 @@ class compression:
                     else:
                             print('Path is not exists!')
                             raise SystemExit
-                            
-                    x=0
-                    x1=0
-                    x2=0
-                    x = time()
-                    
                     Portal=2
                     namea="file.W"
                     namem=""
@@ -525,7 +516,10 @@ class compression:
 
                     block=1
 
-                    
+                    x=0
+                    x1=0
+                    x2=0
+                    x = time()
 
                     with open(nameas, "w") as f4:
                             f4.write(s)
