@@ -178,8 +178,7 @@ class compression:
                                 size_data10=size_data3
                                 predict=-1
                                 predict2=-1
-                                predict3=1
-                                long_block=15
+                                long_block=16
                                 Find=1
                                 Left_Right=0
                                 
@@ -200,6 +199,9 @@ class compression:
                                     times2=Deep
                                     long_block=15
                                     Where5=0
+                                    before_block=0
+                                    check_size_block=0
+                                    before_block_After_check=0
                                     
                                 
                                     
@@ -222,21 +224,13 @@ class compression:
                                                     size_compress=63
                                                     end=blocks
                                                     
-                                                    if predict3==1 or predict3==4:
-                                                       predict=predict+1
-                                                    elif predict3==2 or predict3==3:
-                                                       predict=predict+2
-                                                    if predict>=16:
-                                                        predict=0
-                                                        
-                                                        predict3=predict3+1
-                                                        if predict3==5:
-                                                        	predict3=1
-                                                        
-                                                        
+                                                    find_matches1_number1=0
+                                                
+                                                       
                                                     
-                                                   
-                                                    	
+                                                    predict=predict+1
+                                                    if predict==16:
+                                                        predict=0
                                                     
                                                     
                                                                                              
@@ -273,11 +267,27 @@ class compression:
 
                                                                               
                                                                                         elif str_find[0:4]==b:
-                                                                                        	size_data4=str_find[4:8]+b2+str_find[8:]                                                                                   
+                                                                                            size_data4=str_find[4:8]+b2+str_find[8:]
+                                                                                        	
+                                                                                            before_block=len(str_find)
+                                                                                            check_size_block=len(size_data4)
+                                                                                            before_block_After_check=before_block-2
+                                                                                            if before_block_After_check!=check_size_block:
+                                                                                                print("Error1")
+                                                                                                raise SystemExit
+
+                                                                                        	
 
                                                                                         elif str_find[4:6]==b2:
 
                                                                                             size_data4=b2+str_find[0:4]+str_find[6:]
+
+                                                                                            before_block=len(str_find)
+                                                                                            check_size_block=len(size_data4)
+                                                                                            before_block_After_check=before_block
+                                                                                            if before_block_After_check!=check_size_block:
+                                                                                                print("Error2")
+                                                                                                raise SystemExit
                                                                                             
                                                                                         elif str_find[0:4]!=b and str_find[4:6]!=b2:
 
@@ -292,9 +302,25 @@ class compression:
                                                                                         elif str_find[4:8]==b:
 
                                                                                             size_data4=b2+str_find[0:4]+str_find[8:]
+                                                                                            
+                                                                                            before_block=len(str_find)
+                                                                                            check_size_block=len(size_data4)
+                                                                                            before_block_After_check=before_block-2
+                                                                                            if before_block_After_check!=check_size_block:
+                                                                                                print("Error3")
+                                                                                                raise SystemExit
                                                                                                                                                                                                           
                                                                                         elif str_find[0:2]==b2:
-                                                                                            size_data4=str_find[2:4]+b2+str_find[2:] 
+                                                                                            size_data4=str_find[2:4]+b2+str_find[4:]
+                                                                                            
+                                                                                            before_block=len(str_find)
+                                                                                            check_size_block=len(size_data4)
+                                                                                            before_block_After_check=before_block
+                                                                                            if before_block_After_check!=check_size_block:
+                                                                                                print("Error4")
+                                                                                                raise SystemExit
+
+                                                                                            
 
                             
                                                                                             
