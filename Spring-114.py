@@ -211,7 +211,7 @@ class compression:
                                     Find_guess=0
                                     while Find_guess!=1:
                                         
-                                        while  len(size_data3)>=800:
+                                        while  len(size_data3)>=704:
 
 
                                                     
