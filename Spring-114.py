@@ -441,7 +441,7 @@ class compression:
                                                                                         elif str_find[4:8]!=b2 and str_find[0:2]!=b:
                                                                                             size_data4=str_find
 
-                                                                                            size_data4=str_find
+                                                                                           
 
                                                                                             if size_data4[2:4]==b2:
                                                                                                 if size_data4[2:4]=="00":
