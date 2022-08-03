@@ -222,8 +222,6 @@ class compression:
                                                     size_compress=63
                                                     end=blocks
                                                     
-                                                    find_matches1_number1=0
-                                                
                                                     if predict3==1 or predict3==4:
                                                        predict=predict+1
                                                     elif predict3==2 or predict3==3:
