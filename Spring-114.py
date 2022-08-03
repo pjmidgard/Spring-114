@@ -324,13 +324,24 @@ class compression:
                                                                                                 
                                                                                         elif str_find[0:4]!=b and str_find[4:6]!=b2:
 
-                                                                                            size_data8=str_find[0:4]+str_find[4:]
-                                                                                            if size_data8[0:2]==b2:
+                                                                                            size_data8=str_find
+                                                                                            size_data4=size_data8
+                                                                                            
+                                                                                            if size_data4[0:2]==b2:
                                                                                             
 
-                                                                                                size_data8=str_find[0:4][::-1]+str_find[4:]
+                                                                                              
+    
+                                                                                                print(size_data4)
+                                                                                               
+                                                                                                
+                                                                                                if size_data4[0:2]==b2:  
+                                                                                                	print("Error021") 
+                                                                                                	print(size_data4)
+                                                                                               
+                                                                                                	raise SystemExit   
                                                                                                                                                                         
-                                                                                            if size_data8[4:6]==b2:
+                                                                                            if size_data4[4:6]==b2:
                                                                                             
 
                                                                                                 print("Error461")
