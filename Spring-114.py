@@ -181,6 +181,7 @@ class compression:
                                 long_block=16
                                 Find=1
                                 Left_Right=0
+                                predict3=1
                                 
                                 times_of_times=0
                                 Where4=0
@@ -224,7 +225,17 @@ class compression:
                                                     size_compress=63
                                                     end=blocks
                                                     
-                                                    find_matches1_number1=0
+                                                    if predict3==1 or predict3==4:
+                                                       predict=predict+1
+                                                    elif predict3==2 or predict3==3:
+                                                       predict=predict+2
+                                                    if predict>=16:
+                                                        predict=0
+                                                        
+                                                        predict3=predict3+1
+                                                        if predict3==5:
+                                                        	predict3=1
+                                                        
                                                 
                                                        
                                                     
@@ -276,7 +287,16 @@ class compression:
                                                                                                 print("Error1")
                                                                                                 raise SystemExit
 
-                                                                                        	
+                                                                                            if size_data4[4:6]!=b2:
+                                                                                                print("Error5")
+                                                                                                raise SystemExit
+
+                                                                                            if size_data4[4:8]==b:
+                                                                                                check=6
+                                                                                                
+                                                                                            if size_data4[0:2]==b2:
+                                                                                                print("ErrorA")
+                                                                                                raise SystemExit
 
                                                                                         elif str_find[4:6]==b2:
 
@@ -288,7 +308,20 @@ class compression:
                                                                                             if before_block_After_check!=check_size_block:
                                                                                                 print("Error2")
                                                                                                 raise SystemExit
-                                                                                            
+
+                                                                                            if size_data4[0:2]!=b2:
+                                                                                                print("Error7")
+                                                                                                raise SystemExit
+
+                                                                                            if size_data4[0:4]==b:
+                                                                                                check=8
+
+                                                                                            if size_data4[4:6]!=b2:
+                                                                                                check2="bits1"
+                                                                                                
+                                                                                            if size_data4[4:6]==b2:
+                                                                                                check2="bits2"
+                                                                                                
                                                                                         elif str_find[0:4]!=b and str_find[4:6]!=b2:
 
                                                                                             size_data4=str_find
@@ -309,6 +342,19 @@ class compression:
                                                                                             if before_block_After_check!=check_size_block:
                                                                                                 print("Error3")
                                                                                                 raise SystemExit
+
+                                                                                            if size_data4[0:2]!=b2:
+                                                                                                print("Error9")
+                                                                                                raise SystemExit
+
+
+                                                                                            if size_data4[2:4]==b2:
+                                                                                                print("ErrorC")
+                                                                                                raise SystemExit
+
+                                                                                            if size_data4[0:4]==b:
+                                                                                                check=10
+                                                                                            
                                                                                                                                                                                                           
                                                                                         elif str_find[0:2]==b2:
                                                                                             size_data4=str_find[2:4]+b2+str_find[4:]
@@ -320,9 +366,19 @@ class compression:
                                                                                                 print("Error4")
                                                                                                 raise SystemExit
 
-                                                                                            
+                                                                                            if size_data4[2:4]!=b2:
+                                                                                                print("Error11")
+                                                                                                raise SystemExit
 
-                            
+                                                                                            if size_data4[2:6]==b:
+                                                                                                check=12
+
+                                                                                            if size_data4[0:2]==b2:
+                                                                                                ckeck3="bits2"
+
+                                                                                            if size_data4[0:2]!=b2:
+                                                                                                ckeck3="bits1"
+                                                                                                
                                                                                             
                                                                                         elif str_find[4:8]!=b2 and str_find[0:2]!=b:
                                                                                             size_data4=str_find
