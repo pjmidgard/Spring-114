@@ -274,11 +274,13 @@ class compression:
                          
                                                                                         if str_find[0:4]==b and str_find[4:6]==b2:
 
-                                                                                            size_data4=str_find
+                                                                                            size_data4=b2+b2+str_find[6:]
 
                                                                               
                                                                                         elif str_find[0:4]==b:
                                                                                             size_data4=str_find[4:8]+b2+str_find[8:]
+                                                                                            
+                                                                                            
                                                                                         	
                                                                                             before_block=len(str_find)
                                                                                             check_size_block=len(size_data4)
@@ -499,6 +501,8 @@ class compression:
                                                                                                     if str_find[4:8]==b2 and str_find[0:2]==b:
                                                                                                         print("Error4162")
                                                                                                         raise SystemExit
+                                                                                                        
+                                                                                                        
                                                                                                 
                                                                                         
                                                                                 
