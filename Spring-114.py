@@ -324,7 +324,17 @@ class compression:
                                                                                                 
                                                                                         elif str_find[0:4]!=b and str_find[4:6]!=b2:
 
-                                                                                            size_data4=str_find
+                                                                                            size_data8=str_find[0:4]+str_find[4:]
+                                                                                            if size_data8[0:2]==b2:
+                                                                                            
+
+                                                                                                size_data8=str_find[0:4][::-1]+str_find[4:]
+                                                                                                                                                                        
+                                                                                            if size_data8[4:6]==b2:
+                                                                                            
+
+                                                                                                print("Error461")
+                                                                                                raise SystemExit       
                                                                                             
                                                                                             
                                                                                     elif Left_Right==2:
@@ -381,7 +391,22 @@ class compression:
                                                                                                 
                                                                                             
                                                                                         elif str_find[4:8]!=b2 and str_find[0:2]!=b:
-                                                                                            size_data4=str_find
+                                                                                            size_data7=str_find
+                                                                                            
+                                                                                            size_data4=str_find[4:6]+str_find[0:4]+str_find[6:] 
+                                                                                            if size_data4[4:6]==b2:
+                                                                                            
+
+                                                                                                print("Error462")
+                                                                                                raise SystemExit                                                                                           
+                                                                                            if size_data4[2:4]==b2:
+                                                                                            
+
+                                                                                                print("Error5242")
+                                                                                                raise SystemExit                                                                                                  
+  
+                                                                                            
+                                                                                            
                                                                                         
                                                                                 
                                                                                 size_data6=size_data6+size_data4        
