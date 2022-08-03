@@ -324,28 +324,65 @@ class compression:
                                                                                                 
                                                                                         elif str_find[0:4]!=b and str_find[4:6]!=b2:
 
-                                                                                            size_data8=str_find
-                                                                                            size_data4=size_data8
-                                                                                            
+                                                                                            size_data4=str_find
+
                                                                                             if size_data4[0:2]==b2:
-                                                                                            
+                                                                                                if size_data4[0:2]=="00":
+                                                                                                    size_data4="11"+size_data4[2:]
+                                                                                                    if size_data4[0:2]==b2:
+                                                                                                         print("Error021")
+                                                                                                         raise SystemExit
 
-                                                                                              
-    
-                                                                                                print(size_data4)
-                                                                                               
+                                                                                                    if size_data4[4:6]==b2:
+                                                                                                         print("Error461")
+                                                                                                         raise SystemExit
+                                                                                                    if str_find[0:4]==b and str_find[4:6]==b2:
+                                                                                                        print("Error4611")
+                                                                                                        raise SystemExit
+
+                                                                                                elif size_data4[0:2]=="01":
+                                                                                                    size_data4="10"+size_data4[2:]
+                                                                                                    if size_data4[0:2]==b2:
+                                                                                                         print("Error021")
+                                                                                                         raise SystemExit
+
+                                                                                                    if size_data4[4:6]==b2:
+                                                                                                         print("Error461")
+                                                                                                         raise SystemExit
+                                                                                                    if str_find[0:4]==b and str_find[4:6]==b2:
+                                                                                                        print("Error4611")
+                                                                                                        raise SystemExit
+                                                                                                        
+                                                                                                elif size_data4[0:2]=="10":
+                                                                                                    size_data4="01"+size_data4[2:]
+                                                                                                    if size_data4[0:2]==b2:
+                                                                                                         print("Error021")
+                                                                                                         raise SystemExit
+
+                                                                                                    if size_data4[4:6]==b2:
+                                                                                                         print("Error461")
+                                                                                                         raise SystemExit
+
+                                                                                                    if str_find[0:4]==b and str_find[4:6]==b2:
+                                                                                                        print("Error4611")
+                                                                                                        raise SystemExit
+
+                                                                                                elif size_data4[0:2]=="11":
+                                                                                                    size_data4="00"+size_data4[2:]
+                                                                                                    if size_data4[0:2]==b2:
+                                                                                                         print("Error021")
+                                                                                                         raise SystemExit
+
+                                                                                                    if size_data4[4:6]==b2:
+                                                                                                         print("Error461")
+                                                                                                         raise SystemExit
+
+                                                                                                    if str_find[0:4]==b and str_find[4:6]==b2:
+                                                                                                        print("Error4611")
+                                                                                                        raise SystemExit
                                                                                                 
-                                                                                                if size_data4[0:2]==b2:  
-                                                                                                	print("Error021") 
-                                                                                                	print(size_data4)
-                                                                                               
-                                                                                                	raise SystemExit   
-                                                                                                                                                                        
-                                                                                            if size_data4[4:6]==b2:
-                                                                                            
 
-                                                                                                print("Error461")
-                                                                                                raise SystemExit       
+                                                                                                
                                                                                             
                                                                                             
                                                                                     elif Left_Right==2:
@@ -402,22 +439,67 @@ class compression:
                                                                                                 
                                                                                             
                                                                                         elif str_find[4:8]!=b2 and str_find[0:2]!=b:
-                                                                                            size_data7=str_find
-                                                                                            
-                                                                                            size_data4=str_find[4:6]+str_find[0:4]+str_find[6:] 
-                                                                                            if size_data4[4:6]==b2:
-                                                                                            
+                                                                                            size_data4=str_find
 
-                                                                                                print("Error462")
-                                                                                                raise SystemExit                                                                                           
+                                                                                            size_data4=str_find
+
                                                                                             if size_data4[2:4]==b2:
-                                                                                            
+                                                                                                if size_data4[2:4]=="00":
+                                                                                                    size_data4=size_data4[0:2]+"11"+size_data4[4:]
+                                                                                                    if size_data4[2:4]==b2:
+                                                                                                         print("Error022")
+                                                                                                         raise SystemExit
 
-                                                                                                print("Error5242")
-                                                                                                raise SystemExit                                                                                                  
-  
-                                                                                            
-                                                                                            
+                                                                                                    if size_data4[0:2]==b2:
+                                                                                                         print("Error462")
+                                                                                                         raise SystemExit
+
+                                                                                                    if str_find[4:8]==b2 and str_find[0:2]==b:
+                                                                                                        print("Error4162")
+                                                                                                        raise SystemExit
+
+                                                                                                elif size_data4[2:4]=="01":
+                                                                                                    size_data4=size_data4[0:2]+"10"+size_data4[4:]
+                                                                                                    if size_data4[2:4]==b2:
+                                                                                                         print("Error022")
+                                                                                                         raise SystemExit
+
+                                                                                                    if size_data4[0:2]==b2:
+                                                                                                         print("Error462")
+                                                                                                         raise SystemExit
+
+                                                                                                    if str_find[4:8]==b2 and str_find[0:2]==b:
+                                                                                                        print("Error4162")
+                                                                                                        raise SystemExit
+                                                                                                         
+                                                                                                elif size_data4[2:4]=="10":
+                                                                                                    size_data4=size_data4[0:2]+"01"+size_data4[4:]
+                                                                                                    if size_data4[2:4]==b2:
+                                                                                                         print("Error022")
+                                                                                                         raise SystemExit
+
+                                                                                                    if size_data4[0:2]==b2:
+                                                                                                         print("Error462")
+                                                                                                         raise SystemExit
+
+                                                                                                    if str_find[4:8]==b2 and str_find[0:2]==b:
+                                                                                                        print("Error4162")
+                                                                                                        raise SystemExit
+
+                                                                                                elif size_data4[2:4]=="11":
+                                                                                                    size_data4=size_data4[0:2]+"00"+size_data4[4:]
+                                                                                                    if size_data4[2:4]==b2:
+                                                                                                         print("Error022")
+                                                                                                         raise SystemExit
+
+                                                                                                    if size_data4[0:2]==b2:
+                                                                                                         print("Error462")
+                                                                                                         raise SystemExit
+
+                                                                                                    if str_find[4:8]==b2 and str_find[0:2]==b:
+                                                                                                        print("Error4162")
+                                                                                                        raise SystemExit
+                                                                                                
                                                                                         
                                                                                 
                                                                                 size_data6=size_data6+size_data4        
