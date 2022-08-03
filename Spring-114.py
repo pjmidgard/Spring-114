@@ -274,7 +274,7 @@ class compression:
                          
                                                                                         if str_find[0:4]==b and str_find[4:6]==b2:
 
-                                                                                            size_data4=b2[::-1]+b2+str_find[6:]
+                                                                                            size_data4=b2[::-1]+b2[::-1]+str_find[6:]
 
                                                                               
                                                                                         elif str_find[0:4]==b:
