@@ -2,6 +2,7 @@
 Spring-114
 
 CD-CD + Reverso, XY-YX, AB-BA,  and Z-Z+ sometimes Reverse. 4 combination and opposite. Need to try to predict "0100-0111". Need to find string if cell equal 4 save. if we find on the string  
+
                                                  if b[0:1]=="0": 
                                                         b2="11"
                                                         
