@@ -926,7 +926,7 @@ class compression:
                                         size_data3=size_data3[Times_bits:]
 
                                         Save_predict_find=""
-                                        Read_times_compression_number =int(Read_times_compression_info,2)
+                        
                                         
                                         size_data3=size_data3[40:]
 
