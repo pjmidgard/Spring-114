@@ -329,7 +329,10 @@ class compression:
 
                                                                                         elif str_find[4:6]==b2:
 
+                                                                                            
+
                                                                                             size_data4=b2+str_find[0:4]+str_find[6:]
+                                                                                            
 
                                                                                             before_block=len(str_find)
                                                                                             check_size_block=len(size_data4)
@@ -415,8 +418,8 @@ class compression:
                                                                                                         print("Error19")
                                                                                                         raise SystemExit
 
-                                                                                                    if size_data4[0:4]==b and size_data4[4:6]==b[0:2]:
-                                                                                                        print("Error20")
+                                                                                                    if size_data4[4:8]==b2 and size_data4[0:2]==b:
+                                                                                                        print("Error4162")
                                                                                                         raise SystemExit
 
                                                                                                 elif size_data4[0:2]=="11":
@@ -1086,6 +1089,25 @@ class compression:
 
                                                                                     block=block+blocks
 
+                                                                                elif Left_Right==1 and size_data4[2:4]==b2 and size_data4[0:2]==b2 or Left_Right==1 and size_data4[2:4]==b2 and size_data4[0:2]!=b2:
+                                                                                    size_data4=b2+str_find[2:4]+str_find[4:]
+                                                                                    block=block+blocks
+                                                                                                
+
+
+                                                                                elif Left_Right==1 and size_data4[4:6]!=b2  and size_data4[0:2]==b2:
+                                                                                    size_data4=str_find[4:8]+b+str_find[8:]
+                                                                                    block=block+(blocks-2)
+
+
+                                                                                elif Left_Right==1 and size_data4[0:4]==b and size_data4[4:6]==b[0:2]:
+                                                                                                        
+                                                                                    size_data4=b+b2+str_find[6:]
+                                                                                    block=block+blocks
+                                                                                                        
+                                                                                                        
+
+                                                                                
                                                                                 if Left_Right==2 and size_data4[2:4]==b2 and size_data4[0:2]==b2 and size_data4[4:8]==b2 and size_data4[0:2]==b:
                                                                                     if size_data4[2:4]==b2:
                                                                                         
@@ -1101,8 +1123,22 @@ class compression:
 
                                                                                                 elif size_data4[2:4]=="11":
                                                                                                     size_data4=size_data4[0:2]+"00"+size_data4[4:]
-                                                                                                    
+
+
+                                                                                elif Left_Right==2 and size_data4[2:4]==b2 and size_data4[0:2]==b2 or size_data4[0:2]==b2 and size_data4[2:4]!=b2:
+                                                                                                
+
+                                                                                    size_data4=str_find[0:4]+b2+str_find[6:]        
                                                                                     block=block+blocks
+
+
+                                                                                elif Left_Right==2 and size_data4[0:2]==b2 and size_data4[2:4]!=b2:
+                                                                                    size_data4=str_find[0:4]+b+str_find[8:]
+                                                                                    block=block+(blocks-2)
+
+                                                                                elif str_find4[4:8]==b2 and str_find4[0:2]==b:
+                                                                                    size_data4=str_find
+                                                                                    block=block+blocks                
 
                                                                                 size_data6=size_data6+size_data4       
                                                                                 
