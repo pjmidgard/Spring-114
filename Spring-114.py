@@ -568,7 +568,7 @@ class compression:
                                                                                                 
                                                                                         
                                                                                 
-                                                                                size_data6=size_data6+size_data4        
+                                                                                size_data6=size_data6+size_data4       
                                                                                 block=block+blocks
                                                                                 #print(block)
                                                          
@@ -922,57 +922,6 @@ class compression:
                                         Not_compress_size_of_block_number=int(Not_compress_size_of_block,2)
                                         size_data3=size_data3[Times_bits:]
 
-
-                                        Long_block2_compress_zeroes=size_data3[:6]
-                                        Long_block2_compress_zeroes_number=int(Long_block2_not_compress_zeroes,2)
-                                        size_data3=size_data3[6:]
-
-                                        Forty_bits=40
-                                        Times_bits=Forty_bits-Long_block2_compress_zeroes_number
-
-                                        compress_size_of_block=size_data3[:Times_bits]
-                                        compress_size_of_block_number=int(compress_size_of_block,2)
-                                        size_data3=size_data3[Times_bits:]
-
-
-                                        Times_zeroes=size_data3[:6]
-                                        Times_zeroes_number=int(Times_zeroes,2)
-                                        size_data3=size_data3[6:]
-
-                                        Forty_bits=40
-                                        Times_bits=Forty_bits-Times_zeroes_number
-
-                                        Times_zeroes_size_of_block=size_data3[:Times_bits]
-                                        Times_zeroes_size_of_block_number=int(Times_zeroes_size_of_block,2)
-                                        size_data3=size_data3[Times_bits:]
-                                    
-
-                                        if size_data3[0:9]=="000000001":
-                                            size_data3=size_data3[9:]
-                                        elif size_data3[0:8]=="00000001":
-                                            size_data3=size_data3[8:]
-                                        elif size_data3[0:7]=="0000001":
-                                            size_data3=size_data3[7:]
-                                        elif size_data3[0:6]=="000001":
-                                            size_data3=size_data3[6:]
-                                        elif size_data3[0:5]=="00001":
-                                            size_data3=size_data3[5:]
-                                        elif size_data3[0:4]=="0001":
-                                            size_data3=size_data3[4:]
-                                        elif size_data3[0:3]=="001":
-                                            size_data3=size_data3[3:]
-                                        elif size_data3[0:2]=="01":
-                                            size_data3=size_data3[2:]
-                                        elif size_data3[0:1]=="1":
-                                            size_data3=size_data3[1:]
-
-                                        Blocks_long=size_data3[0:40]
-                                        size_data3=size_data3[40:]
-                                        Blocks_long_number=int(Blocks_long,2)
-                                        Read_times_compression_info=""
-                                        
-                                        Read_times_compression_info=size_data3[0:40]
-                                        
                                         Save_predict_find=""
                                         Read_times_compression_number =int(Read_times_compression_info,2)
                                         
@@ -985,165 +934,173 @@ class compression:
                                     
 
                                         while Read_times_compression_number!=count_times_compression:
-                                            predict=predict+1
-                                            if predict==16:
-                                                predict=0
-                                            b=format(predict,'04b')
-                                            if b[0:2]=="01":
-                                                b="10"+b[2:]
-                                            Save_predict_find=b+Save_predict_find
-                                            count_times_compression=count_times_compression+1
+                                                    if predict3==1 or predict3==4:
+                                                       predict=predict+1
+                                                    elif predict3==2 or predict3==3:
+                                                       predict=predict+2
+                                                    if predict>=16:
+                                                        predict=0
+                                                        
+                                                        predict3=predict3+1
+                                                        if predict3==5:
+                                                        	predict3=1
+                                                    predict=predict+1
+                                                    if predict==16:
+                                                        predict=0
+                                                    b="01"+b[2:4]
+                                                    count_times_compression=count_times_compression+1
                                                     
 
-                                        #print(Save_predict_find)
+                                        #print(Save_predict_find)#
 
-                                        if size_data3[0:9]=="000000001":
-                                            size_data3=size_data3[9:]
-                                        elif size_data3[0:8]=="00000001":
-                                            size_data3=size_data3[8:]
-                                        elif size_data3[0:7]=="0000001":
-                                            size_data3=size_data3[7:]
-                                        elif size_data3[0:6]=="000001":
-                                            size_data3=size_data3[6:]
-                                        elif size_data3[0:5]=="00001":
-                                            size_data3=size_data3[5:]
-                                        elif size_data3[0:4]=="0001":
-                                            size_data3=size_data3[4:]
-                                        elif size_data3[0:3]=="001":
-                                            size_data3=size_data3[3:]
-                                        elif size_data3[0:2]=="01":
-                                            size_data3=size_data3[2:]
-                                        elif size_data3[0:1]=="1":
-                                            size_data3=size_data3[1:]
+                                    long_file=len(size_data3)
+                                    size_data10=""
+                                    size_data9=""
+                                    size_data5=""
+                                    fda5=""
+                                    size_data4=""
+                                    size_data6=""
+                                    size_data7=""
+                                    size_data12=""
+                                    size_data19=""
+                                    size_data10=size_data3
+                                    predict=-1
+                                    predict2=-1
+                                    long_block=16
+                                    Find=1
+                                    Left_Right=0
+                                    predict3=1
+                                    
+                                    times_of_times=0
+                                    Where4=0
+                                    str_find=""
+                          
 
-    
-
-                                        extract=0
-                                        
-                                        if size_data3[0:1]=="0":
-                                            extract=1
-                                        elif size_data3[0:1]=="1":
-                                            extract=2
-
-                                        size_data3[1:]
-                                        
-                                        
-                                        size_data12=""
-                                        #print(extract)
-                                        if extract==1:
-                                            size_data12=size_data3
-
-                                        elif extract==2:
-                                            times_compression=0
-                                            
-                                            compress_no=0
-                                            compress_yes=0
-                                            long2=len(size_data3)
-                                            Deep=Read_times_compression_number
-                                            times2=Deep
-                                            
-                                        
-                                            
-                                            
-                                            block_compression2=0
-                                          
-                                        
-                                            start=-1
-                                            while  times_compression<=Times_zeroes_size_of_block_number:
-
-                                                        start=0
-                                                        blocks=Blocks_long_number
-                                                        end=blocks
-                                                        
-                                                        find_matches1_number1=0
-                                                       
-                                                        
-                                                        
-                                                                                                     
-                                                                                                                                            
-                    
-                                                        block=0
-                                                        b=Save_predict_find[times_compression*4:(times_compression*4)+4]
-                                                        
-                                                        Find=1
-                                                        block_compression1=0
-                                                        block_compression=0
-                                                        block_compression2=0
-                                                        long=len(size_data3)
-                                                        #print(long)
-                                                        
-                                                        Binary_code1=""
-                                                        Circle_count=Binary_code[0:1]
-                                                        if Circle_count=="0":
-                                                            Binary_code=Binary_code[1:]
-                                                            Program=0
-                                                            
-                                                        Infromation_program=Binary_code
-                                                        Long_Info=len(Infromation_program)
-
-                                                        Blocks_count=0
-
-                                                        size_data3=size_data3[1:]
-                                                        
-                                                        while block<long:
-                                                                                    str_find_tree_maches1=size_data3[block:block+compress_size_of_block_number]
-                                                                                    sub_info="01"
-                                                                                    Blocks_count=Blocks_count+1
-
-                                                                                    find_matches1=str_find_tree_maches1.find(sub_info, start, end)
-                                                                                    find_matches1_1=int(find_matches1)
-
-                                                                                    Binary_code2=""
-                                                                                    blocks2=0
-                                                                                    Have_number=-1
-                                                                                    Program=0
-                                                                                    
-                                                                                    if Long_Info!=0:
-                                                                                        Program_code1=Infromation_program[Program:Program+1]
-                                                                                        if Program_code1=="1":
-                                                                                            Program=Program+1
-                                                                                            Not_compress_block_01=Infromation_program[:6]
-                                                                                            Not_compress_block_01_number=int(Not_compress_block_01,2)
-                                                                                            Infromation_program=Infromation_program[6:]
-
-                                                                                            Sixty_bits=63
-                                                                                            Times_bits=Sixty_bits-Not_compress_block_01_numbers
-
-                                                                                            Not_compress_block_01_number_size_of_block=Infromation_program[:Times_bits]
-                                                                                            Times_zeroes_size_of_block_number=int(Not_compress_block_01_number_size_of_block,2)
-                                                                                            Infromation_program=Infromation_program[Times_bits:]
+                                    times_compression=0  
+                                    compress_no=0
+                                    compress_yes=0
+                                    long2=len(size_data3)
+                                    Deep=long2//28
+                                    times2=Deep
+                                    long_block=15
+                                    Where5=0
+                                    before_block=0
+                                    check_size_block=0
+                                    before_block_After_check=0
+                                    
                                 
-                                                                                
-                                                                                    if find_matches1_1==0 and Blocks_count!=Times_zeroes_size_of_block_number:
-                                                                                        size_data4=str_find_tree_maches1[:0]+b+str_find_tree_maches[2:]
-                                                                                        size_data12=size_data12+size_data4
-                                                                                        
-                                                                                       
-                                                                                        blocks2=Not_compress_size_of_block_number
-                                                                                        
-                                                                                    else:
-                                                                                        size_data4=str_find_tree_maches1
-                                                                                        size_data12=size_data12+size_data4
-                                                                                        
-                                                                                        
-                                                                                        blocks2=compress_size_of_block_number
-                                                                                        
-                                                                                    
-                                                                                    block=block+blocks2
-                                                                                    
-                                                        times_compression=times_compression+1
-                                                        #print(times_compression)
-                                                        size_data3=size_data12
-                                                        #print(size_data12)
-                                                        
-                                                        
-                                                        
-                                                        size_data12=""
+                                    
+                                    
+                                    block_compression2=0
+                                    
+                                    start=-1
+                                    Left_Right=0
+                                    Find_guess=0
+                                    while Find_guess!=1:
+                                        
+                                        while  Read_times_compression_number!=count_times_compression:
+
+
+                                                    
                                                         
 
-                                        Times_count=Times_count+1
+                                                    start=0
+                                                    blocks=long_block
+                                                    size_compress=63
+                                                    end=blocks
+                                                    
+                                                    if predict3==1 or predict3==4:
+                                                       predict=predict+1
+                                                    elif predict3==2 or predict3==3:
+                                                       predict=predict+2
+                                                    if predict>=16:
+                                                        predict=0
+                                                        
+                                                        predict3=predict3+1
+                                                        if predict3==5:
+                                                        	predict3=1
+                                                        
+                                                
+                                                       
+                                                    
+                                                    predict=predict+1
+                                                    if predict==16:
+                                                        predict=0
+                                                                                                                          
+                
+                                                    block=0
+                                                    b=Save_predict_find[times_compression*4:(times_compression*4)+4]
+                                                    
+                                                    if b[0:1]=="0":
+                                                        b2="11"
+                                                       
+                                                    elif b[0:1]=="1":
+                                                        b2="00"
+                                                        
+                                                    b="01"+b[2:4]
+                                                        
+                                                        
+                                                    
+                                                    
+                                                    Find=1
+
+                                                    Left_Right=Left_Right+1
+
+                                                    if Left_Right==2:
+                                                        Left_Right=1
+                                                    
+                                                    long=len(size_data3)
+                                                    #print(long)
+
+                                                    size_data7=size_data3[:4]
+
+                                                    Last_block=int(size_data7,2)
+
+                                                    size_of_file_count=len(size_data3)
+
+                                                    size_data3_Last_block=size_data3[size_of_file_count-Last_block:]
+                                                    
+                                                    size_data3=size_data3[4:size_of_file_count-Last_block]
+                                                    
+                                                    while block<long:
+                                                                                str_find=size_data3[block:block+blocks]
+                                                                                str_find4=str_find
+
+                                                                                
+
+                                                                                if Left_Right==1 and size_data4[0:2]!=b2 and size_data4[4:6]!=b2 and size_data4[0:4]==b and size_data4[4:6]==b2 and size_data4[0:4]==b and size_data4[4:6]==b[0:2]:
+                                                                                    if size_data4[0:2]==b2:
+                                                                                                if size_data4[0:2]=="00":
+                                                                                                    size_data4="11"+size_data4[2:]
+
+                                                                                                elif size_data4[0:2]=="01":
+                                                                                                    size_data4="10"+size_data4[2:]
+
+
+                                                                                                elif size_data4[0:2]=="10":
+                                                                                                    size_data4="01"+size_data4[2:]
+
+                                                                                                elif size_data4[0:2]=="11":
+                                                                                                    size_data4="00"+size_data4[2:]
+                                                                                    block=block+blocks    
+                                                                                           
+                                                                                size_data6=size_data6+size_data4       
+                                                                                
+                                                                                #print(block)
+                                                         
+                                                    
+
+                                                    size_data3=size_data6+size_data3_Last_block
+                                                    
+                                                    Where4=0
+                                                    
+                                                    
+                                                    #print(len(size_data6))
+                                                    size_data6=""
+                                                    
+                                                    count_times_compression=count_times_compression+1
                                         
-                                        
+                                     
                                     lenf=len(size_data3)
                                         
                                     add_bits118=""
