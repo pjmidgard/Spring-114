@@ -289,16 +289,16 @@ class compression:
 
 
                                                                                             if size_data4[0:4]==b and size_data4[4:6]==b2:
-                                                                                                        print("Error91")
+                                                                                                        print("Error1")
                                                                                                         raise SystemExit
                                                                                             
 
                                                                                             if size_data4[0:2]==b2:
-                                                                                                    print("ErrorA1")
+                                                                                                    print("Error2")
                                                                                                     raise SystemExit
 
                                                                                             if size_data4[4:6]==b2:
-                                                                                                print("ErrorA2")
+                                                                                                print("Error3")
                                                                                                 raise SystemExit
 
                                                                                             
@@ -313,7 +313,7 @@ class compression:
                                                                                             check_size_block=len(size_data4)
                                                                                             before_block_After_check=before_block-2
                                                                                             if before_block_After_check!=check_size_block:
-                                                                                                print("Error1")
+                                                                                                print("Error4")
                                                                                                 raise SystemExit
 
                                                                                             if size_data4[4:6]!=b2:
@@ -324,7 +324,7 @@ class compression:
                                                                                                 check=6
                                                                                                 
                                                                                             if size_data4[0:2]==b2:
-                                                                                                print("ErrorA")
+                                                                                                print("Error6")
                                                                                                 raise SystemExit
 
                                                                                         elif str_find[4:6]==b2:
@@ -335,11 +335,11 @@ class compression:
                                                                                             check_size_block=len(size_data4)
                                                                                             before_block_After_check=before_block
                                                                                             if before_block_After_check!=check_size_block:
-                                                                                                print("Error2")
+                                                                                                print("Error7")
                                                                                                 raise SystemExit
 
                                                                                             if size_data4[0:2]!=b2:
-                                                                                                print("Error7")
+                                                                                                print("Error8")
                                                                                                 raise SystemExit
 
                                                                                             if size_data4[0:4]==b:
@@ -365,38 +365,38 @@ class compression:
                                                                                                 if size_data4[0:2]=="00":
                                                                                                     size_data4="11"+size_data4[2:]
                                                                                                     if size_data4[0:2]==b2:
-                                                                                                         print("Error021")
+                                                                                                         print("Error9")
                                                                                                          raise SystemExit
 
                                                                                                     if size_data4[4:6]==b2:
-                                                                                                         print("Error461")
+                                                                                                         print("Error10")
                                                                                                          raise SystemExit
                                                                                                         
                                                                                                     if size_data4[0:4]==b and size_data4[4:6]==b2:
-                                                                                                        print("Error4611")
+                                                                                                        print("Error11")
                                                                                                         raise SystemExit
 
                                                                                                     if size_data4[0:4]==b and size_data4[4:6]==b[0:2]:
-                                                                                                        print("Error461341")
+                                                                                                        print("Error12")
                                                                                                         raise SystemExit
 
                                                                                                 elif size_data4[0:2]=="01":
                                                                                                     size_data4="10"+size_data4[2:]
                                                                                                     
                                                                                                     if size_data4[0:2]==b2:
-                                                                                                         print("Error021")
+                                                                                                         print("Error13")
                                                                                                          raise SystemExit
 
                                                                                                     if size_data4[4:6]==b2:
-                                                                                                         print("Error461")
+                                                                                                         print("Error14")
                                                                                                          raise SystemExit
                                                                                                         
                                                                                                     if size_data4[0:4]==b and size_data4[4:6]==b2:
-                                                                                                        print("Error4611")
+                                                                                                        print("Error15")
                                                                                                         raise SystemExit
                                                                                                     
                                                                                                     if size_data4[0:4]==b and size_data4[4:6]==b[0:2]:
-                                                                                                        print("Error461342")
+                                                                                                        print("Error16")
                                                                                                         raise SystemExit 
                                                                                                    
 
@@ -404,34 +404,34 @@ class compression:
                                                                                                 elif size_data4[0:2]=="10":
                                                                                                     size_data4="01"+size_data4[2:]
                                                                                                     if size_data4[0:2]==b2:
-                                                                                                         print("Error021")
+                                                                                                         print("Error17")
                                                                                                          raise SystemExit
 
                                                                                                     if size_data4[4:6]==b2:
-                                                                                                         print("Error461")
+                                                                                                         print("Error18")
                                                                                                          raise SystemExit
 
                                                                                                     if size_data4[0:4]==b and size_data44[4:6]==b2:
-                                                                                                        print("Error4611")
+                                                                                                        print("Error19")
                                                                                                         raise SystemExit
 
                                                                                                     if size_data4[0:4]==b and size_data4[4:6]==b[0:2]:
-                                                                                                        print("Error461343")
+                                                                                                        print("Error20")
                                                                                                         raise SystemExit
 
                                                                                                 elif size_data4[0:2]=="11":
                                                                                                     size_data4="00"+size_data4[2:]
                                                                                                     
                                                                                                     if size_data4[0:2]==b2:
-                                                                                                         print("Error021")
+                                                                                                         print("Error21")
                                                                                                          raise SystemExit
 
                                                                                                     if size_data4[4:6]==b2:
-                                                                                                         print("Error461")
+                                                                                                         print("Error22")
                                                                                                          raise SystemExit
 
                                                                                                     if size_data4[0:4]==b and size_data4[4:6]==b2:
-                                                                                                        print("Error4611")
+                                                                                                        print("Error23")
                                                                                                         raise SystemExit
                                                                                                     
                                                                                                     if size_data4[0:4]==b and size_data4[4:6]==b[0:2]:
@@ -439,11 +439,11 @@ class compression:
                                                                                                         
 
                                                                                                         if size_data4[0:4]==b:
-                                                                                                            print("Error4613441")
+                                                                                                            print("Error24")
                                                                                                             raise SystemExit
                                                                                                         
                                                                                                         if size_data4[4:6]==b[0:2]:
-                                                                                                            print("Error4613442")
+                                                                                                            print("Error25")
                                                                                                             raise SystemExit
 
                                                                                                 
