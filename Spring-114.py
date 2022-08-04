@@ -214,7 +214,7 @@ class compression:
                                     Find_guess=0
                                     while Find_guess!=1:
                                         
-                                        while  len(size_data3)>=704:
+                                        while  len(size_data3)>=896:
 
 
                                                     
@@ -249,7 +249,19 @@ class compression:
                 
                                                     block=0
                                                     b=format(predict,'04b')
-                                                    b2=b[0:2]
+                                                    
+                                                    if b[0:1]=="0":
+                                                        b2="11"
+                                                        
+                                                        
+                                                        
+
+                                                    elif b[0:1]=="1":
+                                                        b2="00"
+                                                    b="01"+b[2:4]
+                                                        
+                                                        
+                                                    
                                                     
                                                     Find=1
 
@@ -274,7 +286,24 @@ class compression:
                          
                                                                                         if str_find[0:4]==b and str_find[4:6]==b2:
 
-                                                                                            size_data4=b[::-1]+b2[::-1]+str_find[6:]
+                                                                                            
+                                                                                            size_data4=b+b[0:2]+str_find[6:]
+
+
+                                                                                            if size_data4[0:4]==b and size_data4[4:6]==b2:
+                                                                                                        print("Error91")
+                                                                                                        raise SystemExit
+                                                                                            
+
+                                                                                            if size_data4[0:2]==b2:
+                                                                                                    print("ErrorA1")
+                                                                                                    raise SystemExit
+
+                                                                                            if size_data4[4:6]==b2:
+                                                                                                print("ErrorA2")
+                                                                                                raise SystemExit
+
+                                                                                            
 
                                                                               
                                                                                         elif str_find[0:4]==b:
@@ -323,6 +352,12 @@ class compression:
                                                                                                 
                                                                                             if size_data4[4:6]==b2:
                                                                                                 check2="bits2"
+
+                                                                                            if str_find[0:4]==b and str_find[4:6]==b[0:2]:
+                                                                                                        print("Error461341")
+                                                                                                        raise SystemExit
+
+
                                                                                                 
                                                                                         elif str_find[0:4]!=b and str_find[4:6]!=b2:
 
@@ -338,12 +373,18 @@ class compression:
                                                                                                     if size_data4[4:6]==b2:
                                                                                                          print("Error461")
                                                                                                          raise SystemExit
-                                                                                                    if str_find[0:4]==b and str_find[4:6]==b2:
+                                                                                                        
+                                                                                                    if size_data4[0:4]==b and size_data4[4:6]==b2:
                                                                                                         print("Error4611")
+                                                                                                        raise SystemExit
+
+                                                                                                    if size_data4[0:4]==b and size_data4[4:6]==b[0:2]:
+                                                                                                        print("Error461341")
                                                                                                         raise SystemExit
 
                                                                                                 elif size_data4[0:2]=="01":
                                                                                                     size_data4="10"+size_data4[2:]
+                                                                                                    
                                                                                                     if size_data4[0:2]==b2:
                                                                                                          print("Error021")
                                                                                                          raise SystemExit
@@ -351,10 +392,17 @@ class compression:
                                                                                                     if size_data4[4:6]==b2:
                                                                                                          print("Error461")
                                                                                                          raise SystemExit
-                                                                                                    if str_find[0:4]==b and str_find[4:6]==b2:
+                                                                                                        
+                                                                                                    if size_data4[0:4]==b and size_data4[4:6]==b2:
                                                                                                         print("Error4611")
                                                                                                         raise SystemExit
-                                                                                                        
+                                                                                                    
+                                                                                                    if size_data4[0:4]==b and size_data4[4:6]==b[0:2]:
+                                                                                                        print("Error461342")
+                                                                                                        raise SystemExit 
+                                                                                                   
+
+   
                                                                                                 elif size_data4[0:2]=="10":
                                                                                                     size_data4="01"+size_data4[2:]
                                                                                                     if size_data4[0:2]==b2:
@@ -365,12 +413,17 @@ class compression:
                                                                                                          print("Error461")
                                                                                                          raise SystemExit
 
-                                                                                                    if str_find[0:4]==b and str_find[4:6]==b2:
+                                                                                                    if size_data4[0:4]==b and size_data44[4:6]==b2:
                                                                                                         print("Error4611")
+                                                                                                        raise SystemExit
+
+                                                                                                    if size_data4[0:4]==b and size_data4[4:6]==b[0:2]:
+                                                                                                        print("Error461343")
                                                                                                         raise SystemExit
 
                                                                                                 elif size_data4[0:2]=="11":
                                                                                                     size_data4="00"+size_data4[2:]
+                                                                                                    
                                                                                                     if size_data4[0:2]==b2:
                                                                                                          print("Error021")
                                                                                                          raise SystemExit
@@ -379,10 +432,21 @@ class compression:
                                                                                                          print("Error461")
                                                                                                          raise SystemExit
 
-                                                                                                    if str_find[0:4]==b and str_find[4:6]==b2:
+                                                                                                    if size_data4[0:4]==b and size_data4[4:6]==b2:
                                                                                                         print("Error4611")
                                                                                                         raise SystemExit
-                                                                                                
+                                                                                                    
+                                                                                                    if size_data4[0:4]==b and size_data4[4:6]==b[0:2]:
+                                                                                                        
+                                                                                                        
+
+                                                                                                        if size_data4[0:4]==b:
+                                                                                                            print("Error4613441")
+                                                                                                            raise SystemExit
+                                                                                                        
+                                                                                                        if size_data4[4:6]==b[0:2]:
+                                                                                                            print("Error4613442")
+                                                                                                            raise SystemExit
 
                                                                                                 
                                                                                             
@@ -456,7 +520,7 @@ class compression:
                                                                                                          print("Error462")
                                                                                                          raise SystemExit
 
-                                                                                                    if str_find[4:8]==b2 and str_find[0:2]==b:
+                                                                                                    if size_data4[4:8]==b2 and size_data4[0:2]==b:
                                                                                                         print("Error4162")
                                                                                                         raise SystemExit
 
@@ -470,7 +534,7 @@ class compression:
                                                                                                          print("Error462")
                                                                                                          raise SystemExit
 
-                                                                                                    if str_find[4:8]==b2 and str_find[0:2]==b:
+                                                                                                    if size_data4[4:8]==b2 and size_data4[0:2]==b:
                                                                                                         print("Error4162")
                                                                                                         raise SystemExit
                                                                                                          
@@ -484,7 +548,7 @@ class compression:
                                                                                                          print("Error462")
                                                                                                          raise SystemExit
 
-                                                                                                    if str_find[4:8]==b2 and str_find[0:2]==b:
+                                                                                                    if size_data4[4:8]==b2 and size_data4[0:2]==b:
                                                                                                         print("Error4162")
                                                                                                         raise SystemExit
 
@@ -498,11 +562,11 @@ class compression:
                                                                                                          print("Error462")
                                                                                                          raise SystemExit
 
-                                                                                                    if str_find[4:8]==b2 and str_find[0:2]==b:
+                                                                                                    if str_find4[4:8]==b2 and str_find4[0:2]==b:
                                                                                                         print("Error4162")
                                                                                                         raise SystemExit
                                                                                                         
-                                                                                                        
+                                                                                                
                                                                                                 
                                                                                         
                                                                                 
