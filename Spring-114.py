@@ -1136,7 +1136,7 @@ class compression:
                                                                                     size_data4=str_find[0:4]+b+str_find[8:]
                                                                                     block=block+(blocks-2)
 
-                                                                                elif str_find4[4:8]==b2 and str_find4[0:2]==b:
+                                                                                elif Left_Right==2 and str_find4[4:8]==b2 and str_find4[0:2]==b:
                                                                                     size_data4=str_find
                                                                                     block=block+blocks                
 
