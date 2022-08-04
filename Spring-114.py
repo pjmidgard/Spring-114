@@ -1070,6 +1070,7 @@ class compression:
 
                                                                                 if Left_Right==1 and size_data4[0:2]!=b2 and size_data4[4:6]!=b2 and size_data4[0:4]==b and size_data4[4:6]==b2 and size_data4[0:4]==b and size_data4[4:6]==b[0:2]:
                                                                                     if size_data4[0:2]==b2:
+                                                                                        
                                                                                                 if size_data4[0:2]=="00":
                                                                                                     size_data4="11"+size_data4[2:]
 
@@ -1082,8 +1083,27 @@ class compression:
 
                                                                                                 elif size_data4[0:2]=="11":
                                                                                                     size_data4="00"+size_data4[2:]
-                                                                                    block=block+blocks    
-                                                                                           
+
+                                                                                    block=block+blocks
+
+                                                                                if Left_Right==2 and size_data4[2:4]==b2 and size_data4[0:2]==b2 and size_data4[4:8]==b2 and size_data4[0:2]==b:
+                                                                                    if size_data4[2:4]==b2:
+                                                                                        
+                                                                                                if size_data4[2:4]=="00":
+                                                                                                    size_data4=size_data4[0:2]+"11"+size_data4[4:]
+
+                                                                                                elif size_data4[2:4]=="01":
+                                                                                                    size_data4=size_data4[0:2]+"10"+size_data4[4:]
+
+
+                                                                                                elif size_data4[2:4]=="10":
+                                                                                                    size_data4=size_data4[0:2]+"01"+size_data4[4:]
+
+                                                                                                elif size_data4[2:4]=="11":
+                                                                                                    size_data4=size_data4[0:2]+"00"+size_data4[4:]
+                                                                                                    
+                                                                                    block=block+blocks
+
                                                                                 size_data6=size_data6+size_data4       
                                                                                 
                                                                                 #print(block)
