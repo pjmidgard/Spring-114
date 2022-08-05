@@ -214,7 +214,7 @@ class compression:
                                     Find_guess=0
                                     while Find_guess!=1:
                                         
-                                        while  len(size_data3)>=896:
+                                        while  len(size_data3)>=4000:
 
 
                                                     
@@ -601,7 +601,7 @@ class compression:
                                                     
                                                                                                                                     
                                                                                                                                                 
-                                                    size_data6=add_bits118+size_data24+size_data6     
+                                                         
                                                         
                 
                                                     size_data3=size_data6
@@ -909,41 +909,27 @@ class compression:
 
                                        
                                     Times_count=0
-                                    while Times_extract_of_time_times_number!=Times_count:
+ 
 
 
 
-                                        Long_block2_not_compress_zeroes=size_data3[:6]
-                                        Long_block2_not_compress_zeroes_number=int(Long_block2_not_compress_zeroes,2)
-                                        #print(Long_block2_not_compress_zeroes_number)
-                                        size_data3=size_data3[6:]
+                                    predict=-1
+                                    predict2=-1
+                                    long_block=16
+                                    Find=1
+                                    Left_Right=0
+                                    predict3=1
 
-                                        Forty_bits=40
-                                        Times_bits=Forty_bits-Long_block2_not_compress_zeroes_number
-
-                                        Not_compress_size_of_block=size_data3[:Times_bits]
-                                        Not_compress_size_of_block_number=int(Not_compress_size_of_block,2)
-                                        size_data3=size_data3[Times_bits:]
-
-                                        Save_predict_find=""
-                        
-                                        
-                                        size_data3=size_data3[40:]
-
-                                        
-
-                                        predict=-1
-                                        count_times_compression=0
                                     
-
-                                        while Read_times_compression_number!=count_times_compression:
+                                     
+                                    while Times_extract_of_time_times_number!=count_times_compression:
                                                     if predict3==1 or predict3==4:
                                                        predict=predict+1
                                                     elif predict3==2 or predict3==3:
                                                        predict=predict+2
                                                     if predict>=16:
                                                         predict=0
-                                                        
+                                                                                                                                                 b=format(predict,'04b')
                                                         predict3=predict3+1
                                                         if predict3==5:
                                                         	predict3=1
@@ -999,9 +985,9 @@ class compression:
                                     start=-1
                                     Left_Right=0
                                     Find_guess=0
-                                    while Find_guess!=1:
+                                   
                                         
-                                        while  Read_times_compression_number!=count_times_compression:
+                                    while Times_extract_of_time_times_number!=count_times_compression:
 
 
                                                     
@@ -1146,7 +1132,7 @@ class compression:
                                                          
                                                     
 
-                                                    size_data3=size_data6+size_data3_Last_block
+                                                    size_data3=size_data6
                                                     
                                                     Where4=0
                                                     
