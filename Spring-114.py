@@ -177,11 +177,11 @@ class compression:
                                 size_data19=""
                                 size_data10=size_data3
                                 predict=-1
-                                predict2=-1
+                                
                                 long_block=16
                                 Find=1
                                 Left_Right=0
-                                predict3=1
+                                
                                 
                                 times_of_times=0
                                 Where4=0
@@ -198,11 +198,15 @@ class compression:
                                     long2=len(size_data3)
                                     Deep=long2//28
                                     times2=Deep
-                                    long_block=15
+                                    long_block=1023
                                     Where5=0
                                     before_block=0
                                     check_size_block=0
                                     before_block_After_check=0
+
+
+                                    size_data_not_compress=size_data3
+                                    #print(size_data_not_compress)
                                     
                                 
                                     
@@ -214,49 +218,26 @@ class compression:
                                     Find_guess=0
                                     while Find_guess!=1:
                                         
-                                        while  len(size_data3)>=4000:
+                                        while  times_of_times!=1:
 
 
                                                     
-                                                        
-
+                                                   
+                                                    long_block=1023
                                                     start=0
                                                     blocks=long_block
                                                     size_compress=63
                                                     end=blocks
                                                     
-                                                    if predict3==1 or predict3==4:
-                                                       predict=predict+1
-                                                    elif predict3==2 or predict3==3:
-                                                       predict=predict+2
-                                                    if predict>=16:
-                                                        predict=0
-                                                        
-                                                        predict3=predict3+1
-                                                        if predict3==5:
-                                                        	predict3=1
-                                                        
-                                                
-                                                       
-                                                    
-                                                    predict=predict+1
-                                                    if predict==16:
-                                                        predict=0
-                                                    
-                                                    
-                                                                                             
-                                                                                                                                        
-                
+                                                     
                                                     block=0
-                                                    b=format(predict,'04b')
+
+                                                    #b=format(predict,'04b')
+                                                    #predict=predict+1
+                                                    #if predict==16:
+                                                        #predict=0
                                                     
-                                                    if b[0:1]=="0":
-                                                        b2="11"
-                                                       
-                                                    elif b[0:1]=="1":
-                                                        b2="00"
-                                                        
-                                                    b="01"+b[2:4]
+                                                    
                                                         
                                                         
                                                     
@@ -272,304 +253,65 @@ class compression:
                                                     #print(long)
                                                     
                                                     while block<long:
-                                                                                str_find=size_data3[block:block+blocks]
-                                                                                size_of_block=len(str_find)
+                                                                                Zeroes=size_data3[block:block+blocks]
+                                                                                size_of_block=len(Zeroes)
+                                                                                #print(size_of_block)
 
-                                                                                if size_of_block!=blocks:
-                                                                                    size_data4=str_find
+                                                                                Zeroes_number=int(Zeroes,2)
 
-                                                                                elif len(str_find)==blocks:
+                                                                                
 
-                                                                                    if Left_Right==1:
-                         
-                                                                                        if str_find[0:4]==b and str_find[4:6]==b2:
+                                                                                size_data24=bin(Zeroes_number)[2:]
+                                                                                
+                                                                                lenf=len(size_data24)
+                                                                                if lenf>long_block:
+                                                                                    print("File too big")
+                                                                                    raise SystemExit
+                                                                                                                                        
+                                                                                                                                        
+                                                                                                                                    
+                                                                                add_bits118=""
+                                                                                count_bits=long_block-lenf%long_block
+                                                                                z=0
+                                                                                if count_bits!=0:
+                                                                                    if count_bits!=long_block:
+                                                                                        while z<count_bits:
+                                                                                            add_bits118="0"+add_bits118
+                                                                                            z=z+1
+                                                                                                                                                                
+                                                                                MAX_zeroes=bin(long_block)[2:]
+                                                                                Size_max_zeroes=len(MAX_zeroes)
+                                                                                
+                                                                                lenf=len(add_bits118)
+                                                                                size_data26=bin(lenf)[2:]
+                                                                                lenf=len(size_data26)
+                                                                                if lenf>Size_max_zeroes:
+                                                                                    print("File too big")
+                                                                                    raise SystemExit
+                                                                                                                                        
+                                                                                                                                        
+                                                                                                                                    
+                                                                                add_bits118=""
+                                                                                count_bits=Size_max_zeroes-lenf%Size_max_zeroes
+                                                                                z=0
+                                                                                if count_bits!=0:
+                                                                                    if count_bits!=Size_max_zeroes:
+                                                                                        while z<count_bits:
+                                                                                            add_bits118="0"+add_bits118
+                                                                                            z=z+1
+                                                                                                                                                                
+                                                                                                                                                                            
+                                                                                size_data7=add_bits118+size_data26+size_data24
 
-                                                                                            
-                                                                                            size_data4=b+b[0:2]+str_find[6:]
+                                                                                size_after_block=len(size_data7)
+                                                                                #print(size_after_block)
 
-
-                                                                                            if size_data4[0:4]==b and size_data4[4:6]==b2:
-                                                                                                        print("Error1")
-                                                                                                        raise SystemExit
-                                                                                            
-
-                                                                                            if size_data4[0:2]==b2:
-                                                                                                    print("Error2")
-                                                                                                    raise SystemExit
-
-                                                                                            if size_data4[4:6]==b2:
-                                                                                                print("Error3")
-                                                                                                raise SystemExit
-
-                                                                                            
-
-                                                                              
-                                                                                        elif str_find[0:4]==b:
-                                                                                            size_data4=str_find[4:8]+b2+str_find[8:]
-                                                                                            
-                                                                                            
-                                                                                        	
-                                                                                            before_block=len(str_find)
-                                                                                            check_size_block=len(size_data4)
-                                                                                            before_block_After_check=before_block-2
-                                                                                            if before_block_After_check!=check_size_block:
-                                                                                                print("Error4")
-                                                                                                raise SystemExit
-
-                                                                                            if size_data4[4:6]!=b2:
-                                                                                                print("Error5")
-                                                                                                raise SystemExit
-
-                                                                                            if size_data4[4:8]==b:
-                                                                                                check=6
-                                                                                                
-                                                                                            if size_data4[0:2]==b2:
-                                                                                                print("Error6")
-                                                                                                raise SystemExit
-
-                                                                                        elif str_find[4:6]==b2:
-
-                                                                                            
-
-                                                                                            size_data4=b2+str_find[0:4]+str_find[6:]
-                                                                                            
-
-                                                                                            before_block=len(str_find)
-                                                                                            check_size_block=len(size_data4)
-                                                                                            before_block_After_check=before_block
-                                                                                            if before_block_After_check!=check_size_block:
-                                                                                                print("Error7")
-                                                                                                raise SystemExit
-
-                                                                                            if size_data4[0:2]!=b2:
-                                                                                                print("Error8")
-                                                                                                raise SystemExit
-
-                                                                                            if size_data4[0:4]==b:
-                                                                                                check=8
-
-                                                                                            if size_data4[4:6]!=b2:
-                                                                                                check2="bits1"
-                                                                                                
-                                                                                            if size_data4[4:6]==b2:
-                                                                                                check2="bits2"
-
-                                                                                            if str_find[0:4]==b and str_find[4:6]==b[0:2]:
-                                                                                                        print("Error461341")
-                                                                                                        raise SystemExit
-
-
-                                                                                                
-                                                                                        elif str_find[0:4]!=b and str_find[4:6]!=b2:
-
-                                                                                            size_data4=str_find
-
-                                                                                            if size_data4[0:2]==b2:
-                                                                                                if size_data4[0:2]=="00":
-                                                                                                    size_data4="11"+size_data4[2:]
-                                                                                                    if size_data4[0:2]==b2:
-                                                                                                         print("Error9")
-                                                                                                         raise SystemExit
-
-                                                                                                    if size_data4[4:6]==b2:
-                                                                                                         print("Error10")
-                                                                                                         raise SystemExit
-                                                                                                        
-                                                                                                    if size_data4[0:4]==b and size_data4[4:6]==b2:
-                                                                                                        print("Error11")
-                                                                                                        raise SystemExit
-
-                                                                                                    if size_data4[0:4]==b and size_data4[4:6]==b[0:2]:
-                                                                                                        print("Error12")
-                                                                                                        raise SystemExit
-
-                                                                                                elif size_data4[0:2]=="01":
-                                                                                                    size_data4="10"+size_data4[2:]
-                                                                                                    
-                                                                                                    if size_data4[0:2]==b2:
-                                                                                                         print("Error13")
-                                                                                                         raise SystemExit
-
-                                                                                                    if size_data4[4:6]==b2:
-                                                                                                         print("Error14")
-                                                                                                         raise SystemExit
-                                                                                                        
-                                                                                                    if size_data4[0:4]==b and size_data4[4:6]==b2:
-                                                                                                        print("Error15")
-                                                                                                        raise SystemExit
-                                                                                                    
-                                                                                                    if size_data4[0:4]==b and size_data4[4:6]==b[0:2]:
-                                                                                                        print("Error16")
-                                                                                                        raise SystemExit 
-                                                                                                   
-
-   
-                                                                                                elif size_data4[0:2]=="10":
-                                                                                                    size_data4="01"+size_data4[2:]
-                                                                                                    if size_data4[0:2]==b2:
-                                                                                                         print("Error17")
-                                                                                                         raise SystemExit
-
-                                                                                                    if size_data4[4:6]==b2:
-                                                                                                         print("Error18")
-                                                                                                         raise SystemExit
-
-                                                                                                    if size_data4[0:4]==b and size_data44[4:6]==b2:
-                                                                                                        print("Error19")
-                                                                                                        raise SystemExit
-
-                                                                                                    if size_data4[4:8]==b2 and size_data4[0:2]==b:
-                                                                                                        print("Error4162")
-                                                                                                        raise SystemExit
-
-                                                                                                elif size_data4[0:2]=="11":
-                                                                                                    size_data4="00"+size_data4[2:]
-                                                                                                    
-                                                                                                    if size_data4[0:2]==b2:
-                                                                                                         print("Error21")
-                                                                                                         raise SystemExit
-
-                                                                                                    if size_data4[4:6]==b2:
-                                                                                                         print("Error22")
-                                                                                                         raise SystemExit
-
-                                                                                                    if size_data4[0:4]==b and size_data4[4:6]==b2:
-                                                                                                        print("Error23")
-                                                                                                        raise SystemExit
-                                                                                                    
-                                                                                                    if size_data4[0:4]==b and size_data4[4:6]==b[0:2]:
-                                                                                                        
-                                                                                                        
-
-                                                                                                        if size_data4[0:4]==b:
-                                                                                                            print("Error24")
-                                                                                                            raise SystemExit
-                                                                                                        
-                                                                                                        if size_data4[4:6]==b[0:2]:
-                                                                                                            print("Error25")
-                                                                                                            raise SystemExit
-
-                                                                                                
-                                                                                            
-                                                                                            
-                                                                                    elif Left_Right==2:
-
-                                                                                        if str_find[4:8]==b2 and str_find[0:2]==b:
-                                                                                            size_data4=str_find
-                                                                                                                              
-                                                                                        elif str_find[4:8]==b:
-
-                                                                                            size_data4=b2+str_find[0:4]+str_find[8:]
-                                                                                            
-                                                                                            before_block=len(str_find)
-                                                                                            check_size_block=len(size_data4)
-                                                                                            before_block_After_check=before_block-2
-                                                                                            if before_block_After_check!=check_size_block:
-                                                                                                print("Error3")
-                                                                                                raise SystemExit
-
-                                                                                            if size_data4[0:2]!=b2:
-                                                                                                print("Error9")
-                                                                                                raise SystemExit
-
-
-                                                                                            if size_data4[2:4]==b2:
-                                                                                                print("ErrorC")
-                                                                                                raise SystemExit
-
-                                                                                            if size_data4[0:4]==b:
-                                                                                                check=10
-                                                                                            
-                                                                                                                                                                                                          
-                                                                                        elif str_find[0:2]==b2:
-                                                                                            size_data4=str_find[2:4]+b2+str_find[4:]
-                                                                                            
-                                                                                            before_block=len(str_find)
-                                                                                            check_size_block=len(size_data4)
-                                                                                            before_block_After_check=before_block
-                                                                                            if before_block_After_check!=check_size_block:
-                                                                                                print("Error4")
-                                                                                                raise SystemExit
-
-                                                                                            if size_data4[2:4]!=b2:
-                                                                                                print("Error11")
-                                                                                                raise SystemExit
-
-                                                                                            if size_data4[2:6]==b:
-                                                                                                check=12
-
-                                                                                            if size_data4[0:2]==b2:
-                                                                                                ckeck3="bits2"
-
-                                                                                            if size_data4[0:2]!=b2:
-                                                                                                ckeck3="bits1"
-                                                                                                
-                                                                                            
-                                                                                        elif str_find[4:8]!=b2 and str_find[0:2]!=b:
-                                                                                            size_data4=str_find
-
-                                                                                           
-
-                                                                                            if size_data4[2:4]==b2:
-                                                                                                if size_data4[2:4]=="00":
-                                                                                                    size_data4=size_data4[0:2]+"11"+size_data4[4:]
-                                                                                                    if size_data4[2:4]==b2:
-                                                                                                         print("Error022")
-                                                                                                         raise SystemExit
-
-                                                                                                    if size_data4[0:2]==b2:
-                                                                                                         print("Error462")
-                                                                                                         raise SystemExit
-
-                                                                                                    if size_data4[4:8]==b2 and size_data4[0:2]==b:
-                                                                                                        print("Error4162")
-                                                                                                        raise SystemExit
-
-                                                                                                elif size_data4[2:4]=="01":
-                                                                                                    size_data4=size_data4[0:2]+"10"+size_data4[4:]
-                                                                                                    if size_data4[2:4]==b2:
-                                                                                                         print("Error022")
-                                                                                                         raise SystemExit
-
-                                                                                                    if size_data4[0:2]==b2:
-                                                                                                         print("Error462")
-                                                                                                         raise SystemExit
-
-                                                                                                    if size_data4[4:8]==b2 and size_data4[0:2]==b:
-                                                                                                        print("Error4162")
-                                                                                                        raise SystemExit
-                                                                                                         
-                                                                                                elif size_data4[2:4]=="10":
-                                                                                                    size_data4=size_data4[0:2]+"01"+size_data4[4:]
-                                                                                                    if size_data4[2:4]==b2:
-                                                                                                         print("Error022")
-                                                                                                         raise SystemExit
-
-                                                                                                    if size_data4[0:2]==b2:
-                                                                                                         print("Error462")
-                                                                                                         raise SystemExit
-
-                                                                                                    if size_data4[4:8]==b2 and size_data4[0:2]==b:
-                                                                                                        print("Error4162")
-                                                                                                        raise SystemExit
-
-                                                                                                elif size_data4[2:4]=="11":
-                                                                                                    size_data4=size_data4[0:2]+"00"+size_data4[4:]
-                                                                                                    if size_data4[2:4]==b2:
-                                                                                                         print("Error022")
-                                                                                                         raise SystemExit
-
-                                                                                                    if size_data4[0:2]==b2:
-                                                                                                         print("Error462")
-                                                                                                         raise SystemExit
-
-                                                                                                    if str_find4[4:8]==b2 and str_find4[0:2]==b:
-                                                                                                        print("Error4162")
-                                                                                                        raise SystemExit
-                                                                                                        
-                                                                                                
-                                                                                                
-                                                                                        
+                                                                                if size_of_block<=size_after_block+1 or size_of_block!=long_block:
+                                                                                    size_data4="0"+Zeroes
+                                                                                    
+                                                                                else:
+                                                                                    size_data4="1"+size_data7
+                                                                                    
                                                                                 
                                                                                 size_data6=size_data6+size_data4       
                                                                                 block=block+blocks
@@ -580,30 +322,6 @@ class compression:
                                                     #print(times_compression)
                                                     
                                                     
-                                                    size_data24=bin(size_of_block)[2:]
-                                                    lenf=len(size_data24)
-                                                    if lenf>4:
-                                                        print("File too big")
-                                                        raise SystemExit
-                                                                                                            
-                                                                                                            
-                                                                                                        
-                                                    add_bits118=""
-                                                    count_bits=4-lenf%4
-                                                    z=0
-                                                    if count_bits!=0:
-                                                        if count_bits!=4:
-                                                            while z<count_bits:
-                                                                add_bits118="0"+add_bits118
-                                                                z=z+1
-                                                                                                                                    
-                                                                                                                                                
-                                                    
-                                                                                                                                    
-                                                                                                                                                
-                                                         
-                                                        
-                
                                                     size_data3=size_data6
                                                     
                                                     Where4=0
@@ -626,47 +344,13 @@ class compression:
                                            
                                             size_data11=size_data9
                                             Find_guess=1
+
+                                    
                                             
+                                    
+                                        
                                         
        
-                                    size_data24=bin(times_of_times)[2:]
-                                    lenf=len(size_data24)
-                                    if lenf>40:
-                                        print("File too big")
-                                        raise SystemExit
-                                                                                            
-                                                                                            
-                                                                                        
-                                    add_bits118=""
-                                    count_bits=40-lenf%40
-                                    z=0
-                                    if count_bits!=0:
-                                        if count_bits!=40:
-                                            while z<count_bits:
-                                                add_bits118="0"+add_bits118
-                                                z=z+1
-                                                                                                                    
-                                                                                                                                
-                                    lenf=len(add_bits118)
-                                    size_data26=bin(lenf)[2:]
-                                    lenf=len(size_data26)
-                                    if lenf>6:
-                                        print("File too big")
-                                        raise SystemExit
-                                                                                            
-                                                                                            
-                                                                                        
-                                    add_bits118=""
-                                    count_bits=6-lenf%6
-                                    z=0
-                                    if count_bits!=0:
-                                        if count_bits!=6:
-                                            while z<count_bits:
-                                                add_bits118="0"+add_bits118
-                                                z=z+1
-                                                                                                                    
-                                                                                                                                
-                                    size_data11=add_bits118+size_data26+size_data24+size_data11
                                     
                                     size_data11="1"+size_data11
                                     
@@ -894,76 +578,6 @@ class compression:
                                     elif size_data3[0:1]=="1":
                                         size_data3=size_data3[1:]
 
-                                    Times_extract_of_time_zeroes=size_data3[:6]
-                                    #print(Times_extract_of_time_zeroes)
-                                    
-                                    times_of_times=int(Times_extract_of_time_zeroes,2)
-                                    size_data3=size_data3[6:]
-
-                                    Forty_bits=40
-                                    Times_bits=Forty_bits-times_of_times
-
-                                    Times_extract_of_time_times=size_data3[:Times_bits]
-                                    Times_extract_of_time_times_number=int(Times_extract_of_time_times,2)
-                                    size_data3=size_data3[Times_bits:]
-
-                                       
-                                    Times_count=0
- 
-
-
-
-                                    predict=-1
-                                    predict2=-1
-                                    long_block=16
-                                    Find=1
-                                    Left_Right=0
-                                    predict3=1
-
-                                    
-                                     
-                                    while Times_extract_of_time_times_number!=count_times_compression:
-                                                    if predict3==1 or predict3==4:
-                                                       predict=predict+1
-                                                    elif predict3==2 or predict3==3:
-                                                       predict=predict+2
-                                                    if predict>=16:
-                                                        predict=0
-                                                                                                                                                 b=format(predict,'04b')
-                                                        predict3=predict3+1
-                                                        if predict3==5:
-                                                        	predict3=1
-                                                    predict=predict+1
-                                                    if predict==16:
-                                                        predict=0
-                                                    b="01"+b[2:4]
-                                                    count_times_compression=count_times_compression+1
-                                                    
-
-                                        #print(Save_predict_find)#
-
-                                    long_file=len(size_data3)
-                                    size_data10=""
-                                    size_data9=""
-                                    size_data5=""
-                                    fda5=""
-                                    size_data4=""
-                                    size_data6=""
-                                    size_data7=""
-                                    size_data12=""
-                                    size_data19=""
-                                    size_data10=size_data3
-                                    predict=-1
-                                    predict2=-1
-                                    long_block=16
-                                    Find=1
-                                    Left_Right=0
-                                    predict3=1
-                                    
-                                    times_of_times=0
-                                    Where4=0
-                                    str_find=""
-                          
 
                                     times_compression=0  
                                     compress_no=0
@@ -971,62 +585,49 @@ class compression:
                                     long2=len(size_data3)
                                     Deep=long2//28
                                     times2=Deep
-                                    long_block=15
+                                    long_block=1023-1
                                     Where5=0
                                     before_block=0
                                     check_size_block=0
                                     before_block_After_check=0
+
+
+                                    size_data_not_compress=size_data3
+                                    times_of_times=0
+                                    #print(size_data_not_compress)
                                     
                                 
                                     
                                     
                                     block_compression2=0
+                                    size_data6=""
                                     
                                     start=-1
                                     Left_Right=0
                                     Find_guess=0
-                                   
+                                    times_of_times1=0
                                         
-                                    while Times_extract_of_time_times_number!=count_times_compression:
+                                    while  times_of_times1!=1:
 
 
                                                     
-                                                        
-
+                                                   
+                                                    long_block=1023
+                                                    #print(long_block)
                                                     start=0
                                                     blocks=long_block
                                                     size_compress=63
                                                     end=blocks
                                                     
-                                                    if predict3==1 or predict3==4:
-                                                       predict=predict+1
-                                                    elif predict3==2 or predict3==3:
-                                                       predict=predict+2
-                                                    if predict>=16:
-                                                        predict=0
-                                                        
-                                                        predict3=predict3+1
-                                                        if predict3==5:
-                                                        	predict3=1
-                                                        
-                                                
-                                                       
-                                                    
-                                                    predict=predict+1
-                                                    if predict==16:
-                                                        predict=0
-                                                                                                                          
-                
+                                                     
                                                     block=0
-                                                    b=Save_predict_find[times_compression*4:(times_compression*4)+4]
+
+                                                    #b=format(predict,'04b')
+                                                    #predict=predict+1
+                                                    #if predict==16:
+                                                        #predict=0
                                                     
-                                                    if b[0:1]=="0":
-                                                        b2="11"
-                                                       
-                                                    elif b[0:1]=="1":
-                                                        b2="00"
-                                                        
-                                                    b="01"+b[2:4]
+                                                    
                                                         
                                                         
                                                     
@@ -1040,98 +641,95 @@ class compression:
                                                     
                                                     long=len(size_data3)
                                                     #print(long)
-
-                                                    size_data7=size_data3[:4]
-
-                                                    Last_block=int(size_data7,2)
-
-                                                    size_of_file_count=len(size_data3)
-
-                                                    size_data3_Last_block=size_data3[size_of_file_count-Last_block:]
+                                                    block2=0
                                                     
-                                                    size_data3=size_data3[4:size_of_file_count-Last_block]
                                                     
-                                                    while block<long:
-                                                                                str_find=size_data3[block:block+blocks]
-                                                                                str_find4=str_find
-
+                                                    while block!=long:
+                                                                                block2=block
                                                                                 
 
-                                                                                if Left_Right==1 and size_data4[0:2]!=b2 and size_data4[4:6]!=b2 and size_data4[0:4]==b and size_data4[4:6]==b2 and size_data4[0:4]==b and size_data4[4:6]==b[0:2]:
-                                                                                    if size_data4[0:2]==b2:
-                                                                                        
-                                                                                                if size_data4[0:2]=="00":
-                                                                                                    size_data4="11"+size_data4[2:]
+                                                                                Zeroes=size_data3[block:block+1]
+                                                                                Zeroes2=size_data3[block+1:block+blocks+1]
+                                                                                size_after2=len(Zeroes2)
+                                                                                if Zeroes=="0" or size_after2!=long_block:
+                                                                                    block=block+1
+                                                                                    Zeroes3=size_data3[block:block+blocks]
+                                                                                    size_after3=len(Zeroes3)
+                                                                                    size_data4=Zeroes3
+                                                                                    
+                                                                                    block=block+size_after3
+                                                                                    #print(len(size_data4))
+                                                                                    
+                                                                                    
+                                                                                
 
-                                                                                                elif size_data4[0:2]=="01":
-                                                                                                    size_data4="10"+size_data4[2:]
+                                                                                elif Zeroes=="1":
+                                                                                    block=block+1
+                                                                                
+                                                                                    size_of_block=len(Zeroes)
+                                                                                    #print(size_of_block)
 
+                                                                                    
+                                                                                                                                                                    
+                                                                                    MAX_zeroes=bin(long_block)[2:]
+                                                                                    Size_max_zeroes=len(MAX_zeroes)
 
-                                                                                                elif size_data4[0:2]=="10":
-                                                                                                    size_data4="01"+size_data4[2:]
+                                                                                    Times_extract_of_time_zeroes=""
+                                                                                    
+                                                                                    Times_extract_of_time_zeroes=size_data3[block:block+Size_max_zeroes]
+                                                                                    #print(Times_extract_of_time_zeroes)
+                                                                                    
+                                                                                    times_of_times=int(Times_extract_of_time_zeroes,2)
+                                                                                    
 
-                                                                                                elif size_data4[0:2]=="11":
-                                                                                                    size_data4="00"+size_data4[2:]
+                                                                                    Forty_bits=long_block
+                                                                                    Times_bits=Forty_bits-times_of_times
+                                                                                    
+                                                                                    block=block+Size_max_zeroes
+                                                                                    
+                                                                                    size_data8=size_data3[block:block+Times_bits]
 
-                                                                                    block=block+blocks
+                                                                                    size_data24=size_data8
+                                                                                
+                                                                                    lenf=len(size_data24)
+                                                                                    if lenf>long_block:
+                                                                                        #print(lenf)
+                                                                                        print("File too big")
+                                                                                        raise SystemExit
+                                                                                                                                            
+                                                                                                                                            
+                                                                                                                                        
+                                                                                    add_bits118=""
+                                                                                    count_bits=long_block-lenf%long_block
+                                                                                    z=0
+                                                                                    if count_bits!=0:
+                                                                                        if count_bits!=long_block:
+                                                                                            while z<count_bits:
+                                                                                                add_bits118="0"+add_bits118
+                                                                                                z=z+1
 
-                                                                                elif Left_Right==1 and size_data4[2:4]==b2 and size_data4[0:2]==b2 or Left_Right==1 and size_data4[2:4]==b2 and size_data4[0:2]!=b2:
-                                                                                    size_data4=b2+str_find[2:4]+str_find[4:]
-                                                                                    block=block+blocks
                                                                                                 
-
-
-                                                                                elif Left_Right==1 and size_data4[4:6]!=b2  and size_data4[0:2]==b2:
-                                                                                    size_data4=str_find[4:8]+b+str_find[8:]
-                                                                                    block=block+(blocks-2)
-
-
-                                                                                elif Left_Right==1 and size_data4[0:4]==b and size_data4[4:6]==b[0:2]:
-                                                                                                        
-                                                                                    size_data4=b+b2+str_find[6:]
-                                                                                    block=block+blocks
-                                                                                                        
-                                                                                                        
-
+                                    
+                                                                                    
+                                                                                    
+                                                                                    size_data4=add_bits118+size_data8
+                                                                                    
+                                                                                    #print(len(size_data4))
+                                                                                    #print(Times_bits3)
+                                                                                    #print("T")
+                                                                                    block=block+Times_bits
+                                                                                size_data6=size_data6+size_data4
+                                                                            
                                                                                 
-                                                                                if Left_Right==2 and size_data4[2:4]==b2 and size_data4[0:2]==b2 and size_data4[4:8]==b2 and size_data4[0:2]==b:
-                                                                                    if size_data4[2:4]==b2:
-                                                                                        
-                                                                                                if size_data4[2:4]=="00":
-                                                                                                    size_data4=size_data4[0:2]+"11"+size_data4[4:]
-
-                                                                                                elif size_data4[2:4]=="01":
-                                                                                                    size_data4=size_data4[0:2]+"10"+size_data4[4:]
-
-
-                                                                                                elif size_data4[2:4]=="10":
-                                                                                                    size_data4=size_data4[0:2]+"01"+size_data4[4:]
-
-                                                                                                elif size_data4[2:4]=="11":
-                                                                                                    size_data4=size_data4[0:2]+"00"+size_data4[4:]
-
-
-                                                                                elif Left_Right==2 and size_data4[2:4]==b2 and size_data4[0:2]==b2 or size_data4[0:2]==b2 and size_data4[2:4]!=b2:
-                                                                                                
-
-                                                                                    size_data4=str_find[0:4]+b2+str_find[6:]        
-                                                                                    block=block+blocks
-
-
-                                                                                elif Left_Right==2 and size_data4[0:2]==b2 and size_data4[2:4]!=b2:
-                                                                                    size_data4=str_find[0:4]+b+str_find[8:]
-                                                                                    block=block+(blocks-2)
-
-                                                                                elif Left_Right==2 and str_find4[4:8]==b2 and str_find4[0:2]==b:
-                                                                                    size_data4=str_find
-                                                                                    block=block+blocks                
-
-                                                                                size_data6=size_data6+size_data4       
-                                                                                
+                                                                                if block2==block:
+                                                                                    block=long
                                                                                 #print(block)
                                                          
+                                                    times_compression=times_compression+1
                                                     
-
+                                                    #print(times_compression)
+                                                    
+                                                    
                                                     size_data3=size_data6
                                                     
                                                     Where4=0
@@ -1139,8 +737,21 @@ class compression:
                                                     
                                                     #print(len(size_data6))
                                                     size_data6=""
+                                                    times_of_times1=times_of_times1+1
                                                     
-                                                    count_times_compression=count_times_compression+1
+                                        
+                                           
+                                            
+                                        
+                                    long_after=len(size_data3)
+                                        
+                                    size_data9=size_data3
+
+                                    size_data3=size_data9
+                                    
+
+                                       
+                                    
                                         
                                      
                                     lenf=len(size_data3)
